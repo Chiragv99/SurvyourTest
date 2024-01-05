@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.contactus.ContactUsFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:padding="@dimen/_12sdp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDistractionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/it_is_a_long_established_fact_that_a_reader_will_be_distracted_by_the_readable_content_of_a_page_when_looking_at_its_layout"
+                android:textColor="@color/navy_blue"
+                android:textSize="@dimen/_8ssp"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--<com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgCall"
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/ic_call2"
+                app:layout_constraintEnd_toStartOf="@+id/tvPhoneNumber"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDistractionText" />
+-->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPhoneNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:autoLink="all"
+                android:drawableStart="@drawable/ic_call2"
+                android:drawablePadding="@dimen/_2sdp"
+                android:maxLines="@integer/material_motion_duration_long_1"
+                android:text="@string/phone_Number"
+                android:textColor="@color/navy_blue"
+                android:textColorLink="@color/navy_blue"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintEnd_toStartOf="@+id/tvEmail"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="@+id/tvDistractionText"
+                app:layout_constraintTop_toBottomOf="@+id/tvDistractionText"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <!--         <com.google.android.material.imageview.ShapeableImageView
+                         android:id="@+id/imgEmail"
+                         android:layout_width="@dimen/_14sdp"
+                         android:layout_height="@dimen/_14sdp"
+                         android:layout_marginTop="@dimen/_16sdp"
+                         android:background="@drawable/ic_email1"
+                         app:layout_constraintEnd_toStartOf="@+id/tvEmail"
+                         app:layout_constraintStart_toEndOf="@+id/tvPhoneNumber"
+                         app:layout_constraintTop_toBottomOf="@+id/tvDistractionText" />
+         -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:autoLink="all"
+                android:drawableStart="@drawable/ic_email1"
+                android:drawablePadding="@dimen/_2sdp"
+                android:maxLines="@integer/material_motion_duration_long_1"
+                android:text="@string/contactus_gmail_com"
+                android:textColor="@color/navy_blue"
+                android:textColorLink="@color/navy_blue"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintEnd_toStartOf="@+id/tvContactUs"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/tvPhoneNumber"
+                app:layout_constraintTop_toBottomOf="@+id/tvDistractionText"
+                tools:ignore="TouchTargetSizeCheck" />
+
+
+            <!--   <com.google.android.material.imageview.ShapeableImageView
+                   android:id="@+id/imgContactus"
+                   android:layout_width="@dimen/_14sdp"
+                   android:layout_height="@dimen/_14sdp"
+                   android:layout_marginTop="@dimen/_16sdp"
+                   android:background="@drawable/ic_email1"
+                   app:layout_constraintEnd_toStartOf="@+id/tvContactUs"
+                   app:layout_constraintStart_toEndOf="@+id/tvEmail"
+                   app:layout_constraintTop_toBottomOf="@+id/tvDistractionText" />
+   -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvContactUs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:autoLink="all"
+                android:drawableStart="@drawable/ic_email1"
+                android:drawablePadding="@dimen/_2sdp"
+                android:maxLines="@integer/material_motion_duration_long_1"
+                android:text="@string/contactus_gmail_com"
+                android:textColor="@color/navy_blue"
+                android:textColorLink="@color/navy_blue"
+                android:textSize="@dimen/_8ssp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/tvDistractionText"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/tvEmail"
+                app:layout_constraintTop_toBottomOf="@+id/tvDistractionText"
+                tools:ignore="TouchTargetSizeCheck" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAddress1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:background="@drawable/shape_blue_cornered_20"
+                android:padding="@dimen/_8sdp"
+                app:layout_constraintEnd_toStartOf="@+id/clAddress2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumber">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPostalinfromation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/postal_information"
+                    android:textColor="@color/navy_blue"
+                    android:textSize="@dimen/_8ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPostalAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="@string/contact_address"
+                    android:textColor="@color/navy_blue"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPostalinfromation" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAddress2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/shape_blue_cornered_20"
+                android:padding="@dimen/_8sdp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/clAddress1"
+                app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumber">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvheadqInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/envato_head_quarters"
+                    android:textColor="@color/navy_blue"
+                    android:textSize="@dimen/_8ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvHeadqAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="@string/contact_address"
+                    android:textColor="@color/navy_blue"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvheadqInfo" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFrequentlyAskedQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/frequently_asked_question"
+                android:textColor="@color/navy_blue"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/recyclerViewContactus"
+                app:layout_constraintTop_toBottomOf="@+id/clAddress2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewContactus"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/tvFrequentlyAskedQuestion"
+                tools:listitem="@layout/item_frequentlyasked_contactus" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

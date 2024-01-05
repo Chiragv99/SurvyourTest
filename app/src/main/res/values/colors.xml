@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1E2D6A</color>
+    <color name="colorPrimaryDark">#1E2D6A</color>
+    <color name="colorAccent">#D19B17</color>
+    <color name="colorPrimaryLight">#209CD8</color>
+    <color name="colorAccentLight">#D3A22C</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="black2">#333333</color>
+    <color name="black3">#202020</color>
+    <color name="black2_opt_60">#99333333</color>
+    <color name="sixty_white">#99000000</color>
+    <color name="warm_grey">#99000000</color>
+    <color name="denim_blue">#3b579d</color>
+    <color name="pale_red">#dc4e41</color>
+    <color name="brownish_grey">#666666</color>
+    <color name="pinkish_grey">#bbbbbb</color>
+    <color name="warm_grey_two">#707070</color>
+    <color name="azul">#1169e2</color>
+    <color name="azul_two">#2978e5</color>
+    <color name="red">#ff0000</color>
+    <color name="red2">#ea0000</color>
+    <color name="separator">#CBCBCB</color>
+    <color name="seaweed">#16cc7f</color>
+    <color name="mango">#ffac27</color>
+    <color name="background">#f9f9f9</color>
+    <color name="navy_blue">#1E2C69</color>
+    <color name="mango_pickford">#F69E15</color>
+    <color name="light_mango_pickford">#FFFDCB7E</color>
+    <color name="light_purple_pickford">#2B3582</color>
+    <color name="light_Gray">#F2F2F2</color>
+    <color name="gray_616161">#616161</color>
+    <color name="gray_323232">#828282</color>
+    <color name="disable">#BDBDBD</color>
+
+
+    //for dashboard
+    <color name="dashboard_title">#B32B3582</color>
+    <color name="dashboard_bg">#E5E5E5</color>
+    <color name="color_yellow">#FDCB7E</color>
+    <color name="color_light_grey">#F2F2F2</color>
+    <color name="color_blue_grey">#901E2C69</color>
+    <color name="color_dark_grey">#828282</color>
+    <color name="color_light_navy_blue">#952B3582</color>
+
+    <color name="colorTransparentBlack">#00000000</color>
+    <color name="track_color">#FFEAEAEB</color>
+
+</resources>

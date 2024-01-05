@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_grpah_pickford"
+    app:startDestination="@+id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.pickfords.surveyorapp.view.dashboard.FragmentDashboard"
+        android:label="DashboardFragment"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/surveyDetailsFragment"
+        android:name="com.pickfords.surveyorapp.view.surveyDetails.FragmentSurveyDetails"
+        android:label="SurveyDetailsFragment"
+        tools:layout="@layout/fragment_survey_details" />
+
+    <fragment
+        android:id="@+id/measurementPreferenceFragment"
+        android:name="com.pickfords.surveyorapp.view.setting.MeasurementPreferenceFragment"
+        android:label="MeasurementPreferenceFragment"
+        tools:layout="@layout/fragment_measurement_preference" />
+
+    <fragment
+        android:id="@+id/addLegsFragment"
+        android:name="com.pickfords.surveyorapp.view.surveyhistory.SurveyDetailsSequenceAddLegsFragment"
+        android:label="Add Legs"
+        tools:layout="@layout/fragment_survey_details_sequence_add_legs" />
+
+    <fragment
+        android:id="@+id/surveyDetailsSequenceFragment"
+        android:name="com.pickfords.surveyorapp.view.surveyhistory.SurveyDetailsSequenceFragment"
+        android:label="survey Details Sequence fragment"
+        tools:layout="@layout/fragment_survey_details_sequence" />
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.pickfords.surveyorapp.view.setting.SettingFragment"
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_setting" />
+
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.pickfords.surveyorapp.view.contactus.ContactUsFragment"
+        android:label="ContactUsFragment"
+        tools:layout="@layout/fragment_contact_us" />
+
+    <fragment
+        android:id="@+id/termsAndConditionFragment"
+        android:name="com.pickfords.surveyorapp.view.termsandcondition.TermsAndConditionFragment"
+        android:label="TermsAndConditionFragment"
+        tools:layout="@layout/fragment_terms_and_condition" />
+
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.pickfords.surveyorapp.view.privacypolicy.PrivacyPolicyFragment"
+        android:label="PrivacyPolicyFragment"
+        tools:layout="@layout/fragment_privacy_policy" />
+
+    <fragment
+        android:id="@+id/surveyHistoryFragment"
+        android:name="com.pickfords.surveyorapp.view.surveyhistory.SurveyHistory"
+        android:label="SurveyHistoryFragment"
+        tools:layout="@layout/fragment_survey_history" />
+
+    <fragment
+        android:id="@+id/editLegsFragment"
+        android:name="com.pickfords.surveyorapp.view.surveyhistory.SurveyDetailsSequenceEditLegsFragment"
+        android:label="Edit Legs"
+        tools:layout="@layout/fragment_survey_details_sequence_edit_legs" />
+
+</navigation>

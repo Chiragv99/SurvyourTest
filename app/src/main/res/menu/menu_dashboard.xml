@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/actionSync"
+        android:icon="@drawable/ic_baseline_sync_24"
+        android:title="@string/sync"
+        app:showAsAction="always" />
+
+<!--    <item-->
+<!--        android:id="@+id/actionSyncUp"-->
+<!--        android:icon="@drawable/ic_baseline_cloud_sync_24"-->
+<!--        android:title="@string/sync_up"-->
+<!--        app:showAsAction="always" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/actionSyncUpload"-->
+<!--        android:icon="@drawable/ic_baseline_cloud_upload_24"-->
+<!--        android:title="@string/sync_up"-->
+<!--        app:showAsAction="always" />-->
+
+</menu>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.planning.FragmentPlanning">
+
+    <data>
+
+        <variable
+            name="mainData"
+            type="com.pickfords.surveyorapp.model.dashboard.DashboardModel" />
+
+        <variable
+            name="viewModel"
+            type="com.pickfords.surveyorapp.viewModel.surveyDetails.PlanningViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/btnSave"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/customerNameLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:padding="@dimen/_2sdp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@id/cvSelectSurveySpinner"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edCustomerName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/customer_name"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvSelectSurveySpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_4sdp"
+                    android:visibility="visible"
+                    android:background="@drawable/bg_rounded"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:elevation="@dimen/_8sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/btnSearch"
+                    app:layout_constraintStart_toEndOf="@+id/customerNameLayout"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvSelectSurveySpinnerTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingEnd="0dp"
+                        android:text="@string/select_sequence"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spnSelectSurvey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_spinner"
+                        android:entries="@array/string_array"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_8ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:adapter="@{viewModel.getSequenceSpinnerAdapter}"
+                        app:setOnItemSelectedListener="@{viewModel.clicksListener}"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                        app:layout_constraintTop_toBottomOf="@id/tvSelectSurveySpinnerTitle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/refrenceNumberLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:padding="@dimen/_2sdp"
+                    app:boxStrokeWidth="0dp"
+                    android:visibility="gone"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@+id/btnSearch"
+                    app:layout_constraintStart_toEndOf="@+id/customerNameLayout"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edRefrenceNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/reference_number"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--        Spinner Customer name setup-->
+                <!--<androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerCustomareNameLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/clSpinnerReferenceNumberLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerCustomareName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="@string/customer_name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinnerCustomerName"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:spinnerMode="dropdown"
+                        app:adapter="@{viewModel.customerSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerCustomareName"
+                        app:setOnItemSelectedListener="@{viewModel.customerClickListener}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                &lt;!&ndash;        Spinner Reference number  setup&ndash;&gt;
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerReferenceNumberLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clSpinnerCustomareNameLayout"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerReferenceNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="@string/reference_number"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinnerReferenceNumber"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:dropDownSelector="@drawable/ic_down_arrow"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:spinnerMode="dropdown"
+                        app:adapter="@{viewModel.getReferenceSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerReferenceNumber"
+                        app:setOnItemSelectedListener="@{viewModel.referenceClickListener}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="@drawable/bg_yello_button_cornered"
+                    android:drawableStart="@drawable/v_ic_toolbar_search"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:paddingStart="@dimen/_16sdp"
+                    android:paddingEnd="@dimen/_16sdp"
+                    android:text="@string/search"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_6ssp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/cvSelectSurveySpinner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cvSelectSurveySpinner"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/addOptionRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_16sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/cvSelectSurveySpinner"
+                    app:setLinearVerticalAdapter="@{viewModel.planningAdapter}"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_add_option_planning" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            style="@style/RoundedYellowButtonStyle"
+            android:layout_marginTop="0dp"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,2673 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 15,
+    "identityHash": "facdfad2234f8c3ffe8fbe23f8a840c7",
+    "entities": [
+      {
+        "tableName": "dashboard",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`surveyId` TEXT NOT NULL, `EnquiryNo` TEXT, `MoveDate` TEXT, `FirstName` TEXT, `MiddleName` TEXT, `Surname` TEXT, `Gender` TEXT, `LanguageId` INTEGER, `Latitude` REAL, `Longitude` REAL, `IsSync` INTEGER, `TotalRecords` INTEGER, `CreatedBy` INTEGER, `City` TEXT, `PostalCode` TEXT, `Address` TEXT, `EmailAddress1` TEXT, `EmailAddress2` TEXT, `Mobile2` TEXT, `Mobile1` TEXT, `PhoneHome` TEXT, `PhoneWork` TEXT, `BrokerName` TEXT, `CompanyName` TEXT, `SurveyDate` TEXT, `SurveyTime` TEXT, `MoveManager` TEXT, `Children` INTEGER, `UserId` INTEGER, `IsSubmitted` INTEGER NOT NULL, `SubmittedDate` TEXT, `IsPetTrans` INTEGER NOT NULL, `IsForEx` INTEGER NOT NULL, `SurveyType` TEXT, `SurveySize` TEXT, `isChangedField` INTEGER, `isCompletedSurvey` INTEGER, PRIMARY KEY(`surveyId`))",
+        "fields": [
+          {
+            "fieldPath": "surveyId",
+            "columnName": "surveyId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enquiryNo",
+            "columnName": "EnquiryNo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "moveDate",
+            "columnName": "MoveDate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "firstName",
+            "columnName": "FirstName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "middleName",
+            "columnName": "MiddleName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surname",
+            "columnName": "Surname",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "gender",
+            "columnName": "Gender",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "languageId",
+            "columnName": "LanguageId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "latitude",
+            "columnName": "Latitude",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "longitude",
+            "columnName": "Longitude",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isSync",
+            "columnName": "IsSync",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "totalRecords",
+            "columnName": "TotalRecords",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "city",
+            "columnName": "City",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "postalCode",
+            "columnName": "PostalCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "Address",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "emailAddressP",
+            "columnName": "EmailAddress1",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "emailAddressB",
+            "columnName": "EmailAddress2",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phoneNoP",
+            "columnName": "Mobile2",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mobileNoB",
+            "columnName": "Mobile1",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phoneNoH",
+            "columnName": "PhoneHome",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phoneNo",
+            "columnName": "PhoneWork",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "brokerName",
+            "columnName": "BrokerName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "companyName",
+            "columnName": "CompanyName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveyDate",
+            "columnName": "SurveyDate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveyTime",
+            "columnName": "SurveyTime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "moveManager",
+            "columnName": "MoveManager",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "children",
+            "columnName": "Children",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "UserId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isSubmitted",
+            "columnName": "IsSubmitted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "submittedDate",
+            "columnName": "SubmittedDate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isPetTrans",
+            "columnName": "IsPetTrans",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isForEx",
+            "columnName": "IsForEx",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surveyType",
+            "columnName": "SurveyType",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveySize",
+            "columnName": "SurveySize",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isChangedField",
+            "columnName": "isChangedField",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isCompletedSurvey",
+            "columnName": "isCompletedSurvey",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "surveyId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "language_list",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`languageId` TEXT NOT NULL, `Language` TEXT, PRIMARY KEY(`languageId`))",
+        "fields": [
+          {
+            "fieldPath": "languageId",
+            "columnName": "languageId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "language",
+            "columnName": "Language",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "languageId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "address_list",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`surveyAddressId` TEXT NOT NULL, `SurveyId` TEXT, `TitleName` TEXT, `CompanyName` TEXT, `AddressOne` TEXT, `AddressTwo` TEXT, `CityName` TEXT, `Postcode` TEXT, `County` TEXT, `CountryId` TEXT, `TelePhoneNo` TEXT, `CreatedBy` TEXT, `UserId` TEXT, `CountryCode` TEXT, `LineNo` TEXT, `Salesperson_Code` TEXT, `AddressTypeId` TEXT, `Floor` TEXT, `Access` TEXT, `Stairs` TEXT, `Distance` TEXT, `DistanceUnitId` TEXT NOT NULL, `Permit` TEXT NOT NULL, `PakringPermit` INTEGER NOT NULL, `ParkingPermitTypeId` TEXT NOT NULL, `Location` TEXT, `Lift` INTEGER, `isLongCarry` INTEGER, `IsShittle` INTEGER, `isChangedField` INTEGER, `isDelete` INTEGER, PRIMARY KEY(`surveyAddressId`))",
+        "fields": [
+          {
+            "fieldPath": "surveyAddressId",
+            "columnName": "surveyAddressId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surveyId",
+            "columnName": "SurveyId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "titleName",
+            "columnName": "TitleName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "companyName",
+            "columnName": "CompanyName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "addressOne",
+            "columnName": "AddressOne",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "addressTwo",
+            "columnName": "AddressTwo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cityName",
+            "columnName": "CityName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "postcode",
+            "columnName": "Postcode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "county",
+            "columnName": "County",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "countryId",
+            "columnName": "CountryId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "telePhoneNo",
+            "columnName": "TelePhoneNo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "UserId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "countryCode",
+            "columnName": "CountryCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lineNo",
+            "columnName": "LineNo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "salesperson_Code",
+            "columnName": "Salesperson_Code",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "addressTypeId",
+            "columnName": "AddressTypeId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "floor",
+            "columnName": "Floor",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "access",
+            "columnName": "Access",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "stairs",
+            "columnName": "Stairs",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "distance",
+            "columnName": "Distance",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "distanceUnit",
+            "columnName": "DistanceUnitId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "permit",
+            "columnName": "Permit",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parkingPermit",
+            "columnName": "PakringPermit",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parkingPermitTypeId",
+            "columnName": "ParkingPermitTypeId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "location",
+            "columnName": "Location",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "elevator",
+            "columnName": "Lift",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isDestinationLongCarry",
+            "columnName": "isLongCarry",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isDestinationShittle",
+            "columnName": "IsShittle",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isChangedField",
+            "columnName": "isChangedField",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isDelete",
+            "columnName": "isDelete",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "surveyAddressId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "country_list",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`countryId` TEXT NOT NULL, `CountryName` TEXT, PRIMARY KEY(`countryId`))",
+        "fields": [
+          {
+            "fieldPath": "countryId",
+            "columnName": "countryId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "countryName",
+            "columnName": "CountryName",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "countryId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "save_sequence",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`surveySequenceId` TEXT NOT NULL, `SurveyId` TEXT, `SurveySequence` TEXT, `SequenceTypeId` INTEGER, `SequenceModeId` INTEGER, `SequenceGroupId` INTEGER, `InsuranceRequirementId` INTEGER, `InsuranceAmount` TEXT, `LabelToUse` TEXT, `PackingMethodId` INTEGER, `ShipmentMethodId` INTEGER, `CreatedBy` TEXT, `SequenceType` TEXT, `SequenceMode` TEXT, `ModeCode` TEXT, `SequenceGroup` TEXT, `GroupCode` TEXT, `InsuranceRequirement` TEXT, `PackingMethod` TEXT, `ShipmentMethod` TEXT, `Allowance` TEXT, `AllowanceTypeId` TEXT, `Distance` TEXT, `DeliveryTypeId` TEXT, `PakingDate` TEXT, `Delivery` TEXT, `OriginAddress` TEXT, `DestinationAddress` TEXT, `isChangedField` INTEGER, `isDelete` INTEGER, `position` INTEGER NOT NULL, PRIMARY KEY(`surveySequenceId`))",
+        "fields": [
+          {
+            "fieldPath": "surveySequenceId",
+            "columnName": "surveySequenceId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surveyId",
+            "columnName": "SurveyId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveySequence",
+            "columnName": "SurveySequence",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceTypeId",
+            "columnName": "SequenceTypeId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceModeId",
+            "columnName": "SequenceModeId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceGroupId",
+            "columnName": "SequenceGroupId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "insuranceRequirementId",
+            "columnName": "InsuranceRequirementId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "insuranceAmount",
+            "columnName": "InsuranceAmount",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "labelToUse",
+            "columnName": "LabelToUse",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "packingMethodId",
+            "columnName": "PackingMethodId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "shipmentMethodId",
+            "columnName": "ShipmentMethodId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceType",
+            "columnName": "SequenceType",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceMode",
+            "columnName": "SequenceMode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "modeCode",
+            "columnName": "ModeCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceGroup",
+            "columnName": "SequenceGroup",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "groupCode",
+            "columnName": "GroupCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "insuranceRequirement",
+            "columnName": "InsuranceRequirement",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "packingMethod",
+            "columnName": "PackingMethod",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "shipmentMethod",
+            "columnName": "ShipmentMethod",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "allowance",
+            "columnName": "Allowance",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "allowanceTypeId",
+            "columnName": "AllowanceTypeId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "distance",
+            "columnName": "Distance",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deliveryTypeId",
+            "columnName": "DeliveryTypeId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pakingDate",
+            "columnName": "PakingDate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "delivery",
+            "columnName": "Delivery",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originAddress",
+            "columnName": "OriginAddress",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationAddress",
+            "columnName": "DestinationAddress",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isChangedField",
+            "columnName": "isChangedField",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isDelete",
+            "columnName": "isDelete",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "position",
+            "columnName": "position",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "surveySequenceId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "sequence_type",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`sequenceTypeId` INTEGER NOT NULL, `SequenceType` TEXT, `SequenceModeId` INTEGER, `SequenceMode` TEXT, `SequenceGroupId` INTEGER, `SequenceGroup` TEXT, `PackingMethodId` INTEGER, `PackingMethod` TEXT, `ShipmentMethodId` INTEGER, `ShipmentMethod` TEXT, PRIMARY KEY(`sequenceTypeId`))",
+        "fields": [
+          {
+            "fieldPath": "sequenceTypeId",
+            "columnName": "sequenceTypeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sequenceType",
+            "columnName": "SequenceType",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceModeId",
+            "columnName": "SequenceModeId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceMode",
+            "columnName": "SequenceMode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceGroupId",
+            "columnName": "SequenceGroupId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceGroup",
+            "columnName": "SequenceGroup",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "packingMethodId",
+            "columnName": "PackingMethodId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "packingMethod",
+            "columnName": "PackingMethod",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "shipmentMethodId",
+            "columnName": "ShipmentMethodId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "shipmentMethod",
+            "columnName": "ShipmentMethod",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "sequenceTypeId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "sequence_group",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`sequenceGroupId` INTEGER NOT NULL, `SequenceGroup` TEXT, PRIMARY KEY(`sequenceGroupId`))",
+        "fields": [
+          {
+            "fieldPath": "sequenceGroupId",
+            "columnName": "sequenceGroupId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sequenceGroup",
+            "columnName": "SequenceGroup",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "sequenceGroupId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "sequence_mode",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`sequenceModeId` INTEGER NOT NULL, `SequenceMode` TEXT, PRIMARY KEY(`sequenceModeId`))",
+        "fields": [
+          {
+            "fieldPath": "sequenceModeId",
+            "columnName": "sequenceModeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sequenceMode",
+            "columnName": "SequenceMode",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "sequenceModeId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "insurance_requirement",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`insuranceRequirementId` INTEGER NOT NULL, `InsuranceRequirement` TEXT, PRIMARY KEY(`insuranceRequirementId`))",
+        "fields": [
+          {
+            "fieldPath": "insuranceRequirementId",
+            "columnName": "insuranceRequirementId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "insuranceRequirement",
+            "columnName": "InsuranceRequirement",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "insuranceRequirementId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "shipping_method",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`shipmentMethodId` INTEGER NOT NULL, `ShipmentMethod` TEXT, `IsActive` INTEGER, `CreatedBy` INTEGER, PRIMARY KEY(`shipmentMethodId`))",
+        "fields": [
+          {
+            "fieldPath": "shipmentMethodId",
+            "columnName": "shipmentMethodId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "shipmentMethod",
+            "columnName": "ShipmentMethod",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "shipmentMethodId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "packing_method",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`packingMethodId` INTEGER NOT NULL, `PackingMethod` TEXT, `IsActive` INTEGER, `CreatedBy` INTEGER, PRIMARY KEY(`packingMethodId`))",
+        "fields": [
+          {
+            "fieldPath": "packingMethodId",
+            "columnName": "packingMethodId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packingMethod",
+            "columnName": "PackingMethod",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "packingMethodId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "show_legs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`surveySequenceLegId` TEXT NOT NULL, `SurveySequenceLeg` TEXT, `OriginAddress` TEXT, `OriginAddressType` TEXT, `OriginFloor` TEXT, `OriginVehicleAccess` TEXT, `OriginStairs` TEXT, `OriginDistance` TEXT, `OriginDistanceUnit` TEXT, `OriginDistanceUnitId` TEXT, `OriginPermit` TEXT, `OriginLocation` TEXT, `OriginElevator` TEXT, `DestinationAddress` TEXT, `DestinationAddressType` TEXT, `DestinationFloor` TEXT, `DestinationVehicleAccess` TEXT, `DestinationStairs` TEXT, `DestinationDistance` TEXT, `DestinationDistanceUnit` TEXT, `DestinationDistanceUnitId` TEXT, `DestinationPermit` TEXT, `DestinationLocation` TEXT, `DestinationElevator` TEXT, `Allowance` TEXT, `AllowanceType` TEXT, `Distance` TEXT, `DeliveryType` TEXT, `PackingDate` TEXT, `Delivery` TEXT, `DestinationPermitId` TEXT, `AllowanceTypeId` TEXT, `DestinationAddressId` TEXT, `OriginAddressId` TEXT, `DeliveryTypeId` TEXT, `DestinationVehicleAccessId` TEXT, `OriginVehicleAccessId` TEXT, `DestinationAddressTypeId` TEXT, `OriginAddressTypeId` TEXT, `OriginPermitId` TEXT, `SurveyId` TEXT, `SurveySequenceId` TEXT, `CreatedBy` TEXT, `IsOriginLongCarry` INTEGER, `IsOriginShittle` INTEGER, `IsDestinationLongCarry` INTEGER, `IsDestinationShittle` INTEGER, `isChangedField` INTEGER, PRIMARY KEY(`surveySequenceLegId`))",
+        "fields": [
+          {
+            "fieldPath": "surveySequenceLegId",
+            "columnName": "surveySequenceLegId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surveySequenceLeg",
+            "columnName": "SurveySequenceLeg",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originAddress",
+            "columnName": "OriginAddress",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originAddressType",
+            "columnName": "OriginAddressType",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originFloor",
+            "columnName": "OriginFloor",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originVehicleAccess",
+            "columnName": "OriginVehicleAccess",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originStairs",
+            "columnName": "OriginStairs",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originDistance",
+            "columnName": "OriginDistance",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originDistanceUnit",
+            "columnName": "OriginDistanceUnit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originDistanceUnitId",
+            "columnName": "OriginDistanceUnitId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originPermit",
+            "columnName": "OriginPermit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originLocation",
+            "columnName": "OriginLocation",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originElevator",
+            "columnName": "OriginElevator",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationAddress",
+            "columnName": "DestinationAddress",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationAddressType",
+            "columnName": "DestinationAddressType",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationFloor",
+            "columnName": "DestinationFloor",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationVehicleAccess",
+            "columnName": "DestinationVehicleAccess",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationStairs",
+            "columnName": "DestinationStairs",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationDistance",
+            "columnName": "DestinationDistance",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationDistanceUnit",
+            "columnName": "DestinationDistanceUnit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationDistanceUnitId",
+            "columnName": "DestinationDistanceUnitId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationPermit",
+            "columnName": "DestinationPermit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationLocation",
+            "columnName": "DestinationLocation",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationElevator",
+            "columnName": "DestinationElevator",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "allowance",
+            "columnName": "Allowance",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "allowanceType",
+            "columnName": "AllowanceType",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "distance",
+            "columnName": "Distance",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deliveryType",
+            "columnName": "DeliveryType",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pakingDate",
+            "columnName": "PackingDate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "delivery",
+            "columnName": "Delivery",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationPermitId",
+            "columnName": "DestinationPermitId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "allowanceTypeId",
+            "columnName": "AllowanceTypeId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationAddressId",
+            "columnName": "DestinationAddressId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originAddressId",
+            "columnName": "OriginAddressId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deliveryTypeId",
+            "columnName": "DeliveryTypeId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationVehicleAccessId",
+            "columnName": "DestinationVehicleAccessId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originVehicleAccessId",
+            "columnName": "OriginVehicleAccessId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationAddressTypeId",
+            "columnName": "DestinationAddressTypeId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originAddressTypeId",
+            "columnName": "OriginAddressTypeId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originPermitId",
+            "columnName": "OriginPermitId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveyId",
+            "columnName": "SurveyId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveySequenceId",
+            "columnName": "SurveySequenceId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isOriginLongCarry",
+            "columnName": "IsOriginLongCarry",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isOriginShittle",
+            "columnName": "IsOriginShittle",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isDestinationLongCarry",
+            "columnName": "IsDestinationLongCarry",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isDestinationShittle",
+            "columnName": "IsDestinationShittle",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isChangedField",
+            "columnName": "isChangedField",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "surveySequenceLegId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "sequence_legs_type",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`legTypeId` INTEGER NOT NULL, `Name` TEXT, `IsActive` INTEGER, `CreatedBy` INTEGER, PRIMARY KEY(`legTypeId`))",
+        "fields": [
+          {
+            "fieldPath": "legTypeId",
+            "columnName": "legTypeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "Name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "legTypeId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "leg_access",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`legAccessId` INTEGER NOT NULL, `Name` TEXT, `IsActive` INTEGER, `CreatedBy` INTEGER, PRIMARY KEY(`legAccessId`))",
+        "fields": [
+          {
+            "fieldPath": "legAccessId",
+            "columnName": "legAccessId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "Name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "legAccessId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "leg_permit",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`permitId` INTEGER NOT NULL, `Name` TEXT, `IsActive` INTEGER, `CreatedBy` INTEGER, PRIMARY KEY(`permitId`))",
+        "fields": [
+          {
+            "fieldPath": "permitId",
+            "columnName": "permitId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "Name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "permitId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "allowance_type",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`allowanceTypeId` INTEGER NOT NULL, `Name` TEXT, `IsActive` INTEGER, `CreatedBy` INTEGER, PRIMARY KEY(`allowanceTypeId`))",
+        "fields": [
+          {
+            "fieldPath": "allowanceTypeId",
+            "columnName": "allowanceTypeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "Name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "allowanceTypeId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "delivery_type",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`deliveryTypeId` INTEGER NOT NULL, `DeliveryType` TEXT, `IsActive` INTEGER, `CreatedBy` INTEGER, PRIMARY KEY(`deliveryTypeId`))",
+        "fields": [
+          {
+            "fieldPath": "deliveryTypeId",
+            "columnName": "deliveryTypeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deliveryType",
+            "columnName": "DeliveryType",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "deliveryTypeId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "inventory_floor",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`floorId` INTEGER NOT NULL, `Floor` TEXT, `IsActive` INTEGER, `CreatedBy` INTEGER, PRIMARY KEY(`floorId`))",
+        "fields": [
+          {
+            "fieldPath": "floorId",
+            "columnName": "floorId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "floor",
+            "columnName": "Floor",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "floorId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "inventory_room",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `RoomId` INTEGER NOT NULL, `Room` TEXT, `IsActive` INTEGER, `CreatedBy` INTEGER, `SurveyId` INTEGER, `UserRoomId` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "roomId",
+            "columnName": "RoomId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "room",
+            "columnName": "Room",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveyId",
+            "columnName": "SurveyId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userRoomId",
+            "columnName": "UserRoomId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "inventory_count",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`countId` INTEGER NOT NULL, `Count` TEXT, `IsActive` INTEGER, `CreatedBy` INTEGER, PRIMARY KEY(`countId`))",
+        "fields": [
+          {
+            "fieldPath": "countId",
+            "columnName": "countId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "count",
+            "columnName": "Count",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "countId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "customer_list",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`customerId` INTEGER NOT NULL, `FirstName` TEXT, `MiddleName` TEXT, `Surname` TEXT, `MobileNo` TEXT, `EmailAddress` TEXT, `Address` TEXT, `CreatedBy` INTEGER, PRIMARY KEY(`customerId`))",
+        "fields": [
+          {
+            "fieldPath": "customerId",
+            "columnName": "customerId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstName",
+            "columnName": "FirstName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "middleName",
+            "columnName": "MiddleName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surname",
+            "columnName": "Surname",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mobileNo",
+            "columnName": "MobileNo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "emailAddress",
+            "columnName": "EmailAddress",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "Address",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "customerId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "reference_list",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`referenceId` INTEGER NOT NULL, `ReferenceNumber` TEXT, `IsActive` INTEGER, `CreatedBy` INTEGER, PRIMARY KEY(`referenceId`))",
+        "fields": [
+          {
+            "fieldPath": "referenceId",
+            "columnName": "referenceId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "referenceNumber",
+            "columnName": "ReferenceNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "referenceId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "leg_list",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`surveySequenceLegId` TEXT NOT NULL, `SurveySequenceLeg` TEXT, `SurveySequenceId` TEXT, `OriginAddressId` TEXT, `DestinationAddressId` TEXT, `OriginAddress` TEXT, `DestinationAddress` TEXT, `CreatedBy` TEXT, `isChangedField` INTEGER, PRIMARY KEY(`surveySequenceLegId`))",
+        "fields": [
+          {
+            "fieldPath": "surveySequenceLegId",
+            "columnName": "surveySequenceLegId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surveySequenceLeg",
+            "columnName": "SurveySequenceLeg",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveySequenceId",
+            "columnName": "SurveySequenceId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originAddressId",
+            "columnName": "OriginAddressId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationAddressId",
+            "columnName": "DestinationAddressId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "originAddress",
+            "columnName": "OriginAddress",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "destinationAddress",
+            "columnName": "DestinationAddress",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isChangedField",
+            "columnName": "isChangedField",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "surveySequenceLegId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "PartnerTempModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`Id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `saveDetails` TEXT NOT NULL, `isSync` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "Id",
+            "columnName": "Id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saveDetails",
+            "columnName": "saveDetails",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isSync",
+            "columnName": "isSync",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "Id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "survey_planning_list",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`surveyId` TEXT NOT NULL, `sequenceId` TEXT, `CustomerId` TEXT, `ReferenceId` TEXT, `ReferenceNumber` TEXT, `Options` TEXT, `CustomerName` TEXT, `isChangedField` INTEGER, PRIMARY KEY(`surveyId`))",
+        "fields": [
+          {
+            "fieldPath": "surveyId",
+            "columnName": "surveyId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sequenceId",
+            "columnName": "sequenceId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "customerId",
+            "columnName": "CustomerId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referenceId",
+            "columnName": "ReferenceId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referenceNumber",
+            "columnName": "ReferenceNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "options",
+            "columnName": "Options",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "customerName",
+            "columnName": "CustomerName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isChangedField",
+            "columnName": "isChangedField",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "surveyId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "comments_detail",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`surveyCommentId` TEXT NOT NULL, `SurveyId` INTEGER, `SequenceId` TEXT, `PFResponsiblity` TEXT, `CustomerResp` TEXT, `General` TEXT, `CrewNotesAndHighValues` TEXT, `OpsConf` TEXT, `CreatedBy` INTEGER, `isChangedField` INTEGER, PRIMARY KEY(`surveyCommentId`))",
+        "fields": [
+          {
+            "fieldPath": "surveyCommentId",
+            "columnName": "surveyCommentId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surveyId",
+            "columnName": "SurveyId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceId",
+            "columnName": "SequenceId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pFReason",
+            "columnName": "PFResponsiblity",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "customerResp",
+            "columnName": "CustomerResp",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "general",
+            "columnName": "General",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ops",
+            "columnName": "CrewNotesAndHighValues",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "opsConf",
+            "columnName": "OpsConf",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isChangedField",
+            "columnName": "isChangedField",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "surveyCommentId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "inventory_type_selection",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `InventoryItemId` INTEGER, `InventoryTypeId` INTEGER, `Name` TEXT, `CreatedBy` INTEGER, `Volume` REAL, `Length` INTEGER, `Width` INTEGER, `Height` INTEGER, `MeasurementType` TEXT, `IsPackingType` INTEGER, `surveyInventoryID` TEXT, `isSelected` INTEGER NOT NULL, `isCurrentItem` INTEGER NOT NULL, `isCustomize` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "inventoryItemId",
+            "columnName": "InventoryItemId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "inventoryTypeId",
+            "columnName": "InventoryTypeId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "Name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "volume",
+            "columnName": "Volume",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "length",
+            "columnName": "Length",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "width",
+            "columnName": "Width",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "height",
+            "columnName": "Height",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "measurementType",
+            "columnName": "MeasurementType",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "packingType",
+            "columnName": "IsPackingType",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveyInventoryID",
+            "columnName": "surveyInventoryID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isSelected",
+            "columnName": "isSelected",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCurrentItem",
+            "columnName": "isCurrentItem",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCustomize",
+            "columnName": "isCustomize",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_inventory_type_selection_InventoryItemId_InventoryTypeId",
+            "unique": true,
+            "columnNames": [
+              "InventoryItemId",
+              "InventoryTypeId"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_inventory_type_selection_InventoryItemId_InventoryTypeId` ON `${TABLE_NAME}` (`InventoryItemId`, `InventoryTypeId`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "survey_inventory_list",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`inventoryTypeId` INTEGER, `Name` TEXT, `CreatedBy` INTEGER, PRIMARY KEY(`inventoryTypeId`))",
+        "fields": [
+          {
+            "fieldPath": "inventoryTypeId",
+            "columnName": "inventoryTypeId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "Name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "inventoryTypeId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "pictures",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`surveyPicId` TEXT NOT NULL, `SurveyId` TEXT, `ImageData` TEXT, `PictureName` TEXT, `CreatedBy` TEXT, `IsLocalImage` INTEGER, `isDelete` INTEGER, PRIMARY KEY(`surveyPicId`))",
+        "fields": [
+          {
+            "fieldPath": "surveyPicId",
+            "columnName": "surveyPicId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surveyId",
+            "columnName": "SurveyId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "imageData",
+            "columnName": "ImageData",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pictureName",
+            "columnName": "PictureName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isLocalImage",
+            "columnName": "IsLocalImage",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isDelete",
+            "columnName": "isDelete",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "surveyPicId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "sequence_details",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`surveyInventoryId` TEXT NOT NULL, `surveySequenceId` INTEGER NOT NULL, `SurveyId` TEXT, `Floor` TEXT, `FloorId` TEXT, `Room` TEXT, `RoomId` TEXT, `Sequence` TEXT, `SequenceId` TEXT, `SurveySequenceLeg` TEXT, `SurveySequenceLegId` TEXT, `LegFromAddressCity` TEXT, `LegToAddressCity` TEXT, `SequenceFromAddressCity` TEXT, `SequenceToAddressCity` TEXT, `InventoryItemName` TEXT, `IsCard` INTEGER, `IsBubbleWrap` INTEGER, `IsRemain` INTEGER, `IsFullExportWrap` INTEGER, `InventoryTypeId` TEXT, `InventoryNameId` TEXT, `CreatedBy` TEXT, `CreateLength` TEXT, `CreateHeight` TEXT, `CreateWidth` TEXT, `MiscComment` TEXT, `DamageComment` TEXT, `IsApproveAdmin` INTEGER, `Image` TEXT, `Item` TEXT, `Count` TEXT, `Volume` TEXT, `TotalVolume` TEXT, `Comments` TEXT, `Damage` TEXT, `Dimenstion` TEXT, `MeasurementType` TEXT, `IsPackage` INTEGER, `IsDismantle` INTEGER, `IsCrate` INTEGER NOT NULL, `IsCustomize` INTEGER NOT NULL, `ItemImage` TEXT, `InventoryValue` TEXT, `packingType` INTEGER, `isDelete` INTEGER NOT NULL, `isChangedField` INTEGER, PRIMARY KEY(`surveyInventoryId`))",
+        "fields": [
+          {
+            "fieldPath": "surveyInventoryId",
+            "columnName": "surveyInventoryId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surveySequenceId",
+            "columnName": "surveySequenceId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surveyId",
+            "columnName": "SurveyId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "floor",
+            "columnName": "Floor",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "floorId",
+            "columnName": "FloorId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "room",
+            "columnName": "Room",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "roomId",
+            "columnName": "RoomId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequence",
+            "columnName": "Sequence",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sequenceId",
+            "columnName": "SequenceId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveySequenceLeg",
+            "columnName": "SurveySequenceLeg",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "surveySequenceLegId",
+            "columnName": "SurveySequenceLegId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "legFromAddressCity",
+            "columnName": "LegFromAddressCity",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "legToAddressCity",
+            "columnName": "LegToAddressCity",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "SequenceFromAddressCity",
+            "columnName": "SequenceFromAddressCity",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "SequenceToAddressCity",
+            "columnName": "SequenceToAddressCity",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "inventoryItemName",
+            "columnName": "InventoryItemName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isCard",
+            "columnName": "IsCard",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isBubbleWrap",
+            "columnName": "IsBubbleWrap",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isRemain",
+            "columnName": "IsRemain",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isFullExportWrap",
+            "columnName": "IsFullExportWrap",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "inventoryTypeId",
+            "columnName": "InventoryTypeId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "inventoryNameId",
+            "columnName": "InventoryNameId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createLength",
+            "columnName": "CreateLength",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createHeight",
+            "columnName": "CreateHeight",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createWidth",
+            "columnName": "CreateWidth",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "miscComment",
+            "columnName": "MiscComment",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "damageComment",
+            "columnName": "DamageComment",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isApproveAdmin",
+            "columnName": "IsApproveAdmin",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "image",
+            "columnName": "Image",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "item",
+            "columnName": "Item",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "count",
+            "columnName": "Count",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "volume",
+            "columnName": "Volume",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "totalVolume",
+            "columnName": "TotalVolume",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "comments",
+            "columnName": "Comments",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "damage",
+            "columnName": "Damage",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dimenstion",
+            "columnName": "Dimenstion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "measurementType",
+            "columnName": "MeasurementType",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isPackage",
+            "columnName": "IsPackage",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isDismantle",
+            "columnName": "IsDismantle",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isCrate",
+            "columnName": "IsCrate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCustomize",
+            "columnName": "IsCustomize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "itemImage",
+            "columnName": "ItemImage",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "inventoryValue",
+            "columnName": "InventoryValue",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "packingType",
+            "columnName": "packingType",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isDelete",
+            "columnName": "isDelete",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isChangedField",
+            "columnName": "isChangedField",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "surveyInventoryId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "distance_type",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`distanceUnitId` INTEGER NOT NULL, `DistanceUnit` TEXT, `IsActive` INTEGER, PRIMARY KEY(`distanceUnitId`))",
+        "fields": [
+          {
+            "fieldPath": "distanceUnitId",
+            "columnName": "distanceUnitId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "distanceUnit",
+            "columnName": "DistanceUnit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "distanceUnitId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "sync_data",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`syncDataId` TEXT NOT NULL, `isChangedField` INTEGER, PRIMARY KEY(`syncDataId`))",
+        "fields": [
+          {
+            "fieldPath": "syncDataId",
+            "columnName": "syncDataId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isChangedField",
+            "columnName": "isChangedField",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "syncDataId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "submit_data",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`submitDataId` TEXT NOT NULL, `surveyId` TEXT NOT NULL, PRIMARY KEY(`submitDataId`))",
+        "fields": [
+          {
+            "fieldPath": "submitDataId",
+            "columnName": "submitDataId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surveyId",
+            "columnName": "surveyId",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "submitDataId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "AdditionalInfoPartnerModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`Id` INTEGER NOT NULL, `FirstName` TEXT, `LastName` TEXT, `Email` TEXT, `Phone` TEXT, `Comments` TEXT, PRIMARY KEY(`Id`))",
+        "fields": [
+          {
+            "fieldPath": "Id",
+            "columnName": "Id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstName",
+            "columnName": "FirstName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastName",
+            "columnName": "LastName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "Email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "Phone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "comments",
+            "columnName": "Comments",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "Id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "partnerListModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`Id` INTEGER NOT NULL, `FirstName` TEXT, `LastName` TEXT, `Email` TEXT, `Phone` TEXT, `Comments` TEXT, `IsActive` INTEGER, `CreatedBy` TEXT, `IsLink` INTEGER, `Image` TEXT, `ImageData` TEXT, PRIMARY KEY(`Id`))",
+        "fields": [
+          {
+            "fieldPath": "Id",
+            "columnName": "Id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "FirstName",
+            "columnName": "FirstName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "LastName",
+            "columnName": "LastName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Email",
+            "columnName": "Email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Phone",
+            "columnName": "Phone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Comments",
+            "columnName": "Comments",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "IsActive",
+            "columnName": "IsActive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "CreatedBy",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "IsLink",
+            "columnName": "IsLink",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Image",
+            "columnName": "Image",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ImageData",
+            "columnName": "ImageData",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "Id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "activity_list",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`activityId` INTEGER, `Activity` TEXT, PRIMARY KEY(`activityId`))",
+        "fields": [
+          {
+            "fieldPath": "activityId",
+            "columnName": "activityId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "activity",
+            "columnName": "Activity",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "activityId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "code_list",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`activityCodeId` INTEGER, `Code` TEXT, `ActivityId` INTEGER, `Activity` TEXT, `Discription` TEXT, PRIMARY KEY(`activityCodeId`))",
+        "fields": [
+          {
+            "fieldPath": "activityCodeId",
+            "columnName": "activityCodeId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "Code",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "activityId",
+            "columnName": "ActivityId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "activity",
+            "columnName": "Activity",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "discription",
+            "columnName": "Discription",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "activityCodeId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'facdfad2234f8c3ffe8fbe23f8a840c7')"
+    ]
+  }
+}

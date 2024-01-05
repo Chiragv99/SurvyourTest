@@ -1,0 +1,1221 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.pickfords.surveyorapp.model.surveyDetails.ShowLegsModel" />
+
+        <variable
+            name="isEdit"
+            type="Boolean" />
+
+        <variable
+            name="showLegsModel"
+            type="com.pickfords.surveyorapp.model.surveyDetails.ShowLegsModel" />
+
+        <variable
+            name="viewModel"
+            type="com.pickfords.surveyorapp.viewModel.surveyDetails.LegsViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.surveyhistory.SurveyDetailsSequenceAddLegsFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_32sdp">
+                <!--Legs constraint-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/legsDropdownLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryLight"
+                    android:padding="@dimen/_4sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_14sdp"
+                        android:text="@string/legs"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_down_arrow" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/clAddlegsMainCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:elevation="@dimen/_8sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/legsDropdownLayout">
+
+                    <!--    Main layout -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clAddLegsEntry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+                        <!--        origin legs layout-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clAddOriginLegs"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toStartOf="@+id/clAddDestinationLegs"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvOrigin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/origin"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <!--            address layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerAddressOriginLayout"
+                                style="@style/SpinnerCLTheme"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tvOrigin">
+
+
+                                <TextView
+                                    android:id="@+id/tvSpinnerAddressOrigin"
+                                    style="@style/SpinnerTopLabelStyle"
+                                    android:text="@string/address"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/spinnerOriginAddress"
+                                    style="@style/SpinnerThemeAddSequence"
+                                    app:adapter="@{viewModel.getAddressOriginSpinnerAdapter}"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvSpinnerAddressOrigin" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--type layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerTypeOriginLayout"
+                                style="@style/SpinnerCLTheme"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/clSpinnerAddressOriginLayout">
+
+                                <TextView
+                                    android:id="@+id/tvSpinnertypeOrigin"
+                                    style="@style/SpinnerTopLabelStyle"
+                                    android:text="@string/type"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/spinnerOriginType"
+                                    style="@style/SpinnerThemeAddSequence"
+                                    app:adapter="@{viewModel.getSequenceLegTypeOriginSpinnerAdapter}"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvSpinnertypeOrigin" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--            floor layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clAddOriginFloor"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_1sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clSpinnerTypeOriginLayout">
+
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/floorOriginLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/floor"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edOriginfloor"
+                                        style="@style/editTextStyle"
+                                        android:text="@={data.originFloor}"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--            Access layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerAccessOriginLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_1sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clAddOriginFloor">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/AccessOrigin"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/access"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edOriginaccess"
+                                        style="@style/editTextStyle"
+                                        android:text="@={data.originVehicleAccess}"
+                                        android:textSize="@dimen/_10ssp" />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--            Stairs  layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clAddOriginStairs"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_1sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clSpinnerAccessOriginLayout">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/tvaddStairOriginLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/stairs"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edaddStairOrigin"
+                                        style="@style/editTextStyle"
+                                        android:text="@={data.originStairs}"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--            Distance layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clAddOriginDistance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_1sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clAddOriginStairs">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:baselineAligned="false"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputLayout
+                                        android:id="@+id/addStairOriginLayout"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:hint="@string/distance"
+                                        android:theme="@style/TextInputLayoutAppearance"
+                                        app:boxBackgroundColor="@null"
+                                        app:boxStrokeWidth="0dp"
+                                        app:boxStrokeWidthFocused="0dp"
+                                        app:hintTextColor="@color/sixty_white"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <com.google.android.material.textfield.TextInputEditText
+                                            android:id="@+id/edaddDistanceOrigin"
+                                            style="@style/editTextStyle"
+                                            android:inputType="number"
+                                            android:text="@={data.originDistance}"
+                                            android:textSize="@dimen/_10ssp" />
+
+                                    </com.google.android.material.textfield.TextInputLayout>
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/clSpinnerDistanceUnitOrigin"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:id="@+id/tvSpinnerDistanceUnitOrigin"
+                                            style="@style/SpinnerTopLabelStyle"
+                                            android:text="@string/distance_unit"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                        <!--todo change adapter value-->
+                                        <androidx.appcompat.widget.AppCompatSpinner
+                                            android:id="@+id/spinnerDistanceUnitOrigin"
+                                            style="@style/SpinnerThemeAddSequence"
+                                            app:adapter="@{viewModel.getSequenceLegTypeOriginSpinnerAdapter}"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@id/tvSpinnerDistanceUnitOrigin" />
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </LinearLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--&lt;!&ndash;distance unit layout&ndash;&gt;
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerDistanceUnitOrigin"
+                                style="@style/SpinnerCLTheme"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/clAddOriginDistance">
+
+                                <TextView
+                                    android:id="@+id/tvSpinnerDistanceUnitOrigin"
+                                    style="@style/SpinnerTopLabelStyle"
+                                    android:text="@string/distance_unit"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                &lt;!&ndash;todo change adapter value&ndash;&gt;
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/spinnerDistanceUnitOrigin"
+                                    style="@style/SpinnerThemeAddSequence"
+                                    app:adapter="@{viewModel.getSequenceLegTypeOriginSpinnerAdapter}"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvSpinnerDistanceUnitOrigin" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                            <!--checkbox long carry-->
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/cbLongCarryOrigin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:checked="@{data.isOriginLongCarry}"
+                                android:text="@string/longcarry"
+                                android:textSize="@dimen/_7ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/clAddOriginDistance" />
+
+                            <!--checkbox shuttle-->
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/cbShuttleOrigin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:checked="@{data.isOriginShittle}"
+                                android:text="@string/shuttle"
+                                android:textSize="@dimen/_7ssp"
+                                app:layout_constraintStart_toEndOf="@id/cbLongCarryOrigin"
+                                app:layout_constraintTop_toBottomOf="@id/clAddOriginDistance" />
+
+                            <!--            Permit  layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerPermitOriginLayout"
+                                style="@style/SpinnerCLTheme"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/cbLongCarryOrigin">
+
+                                <TextView
+                                    android:id="@+id/tvSpinnerPermitOrigin"
+                                    style="@style/SpinnerTopLabelStyle"
+                                    android:text="@string/permit"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/spinnerOriginPermit"
+                                    style="@style/SpinnerThemeAddSequence"
+                                    app:adapter="@{viewModel.getSequenceLegPermitOriginSpinnerAdapter}"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvSpinnerPermitOrigin" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--           Location layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clAddOriginLocation"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clSpinnerPermitOriginLayout">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/addLocationOriginLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_border_rounded"
+                                    android:hint="@string/location"
+                                    android:padding="@dimen/_2sdp"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edaddLocationOrigin"
+                                        style="@style/editTextStyle"
+                                        android:text="@={data.originLocation}"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--           Elevator layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clAddOriginElevator"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clAddOriginLocation">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/addOriginElevatorLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_border_rounded"
+                                    android:hint="@string/elevator"
+                                    android:padding="@dimen/_2sdp"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edaddElevatorOrigin"
+                                        style="@style/editTextStyle"
+                                        android:inputType="number"
+                                        android:maxLength="3"
+                                        android:text="@={data.originElevator}"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <!--destination legs layout-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clAddDestinationLegs"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/clAddOriginLegs"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvDestination"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:text="@string/destination"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <!--Address layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerAddressDestinationLayout"
+                                style="@style/SpinnerCLTheme"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tvDestination">
+
+
+                                <TextView
+                                    android:id="@+id/tvSpinnerAddressDestination"
+                                    style="@style/SpinnerTopLabelStyle"
+                                    android:text="@string/address"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/spinnerDestinationAddress"
+                                    style="@style/SpinnerThemeAddSequence"
+                                    app:adapter="@{viewModel.getAddressDestinationSpinnerAdapter}"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvSpinnerAddressDestination" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--type layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerTypeDestinationLayout"
+                                style="@style/SpinnerCLTheme"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/clSpinnerAddressDestinationLayout">
+
+                                <TextView
+                                    android:id="@+id/tvSpinnerdestinationtype"
+                                    style="@style/SpinnerTopLabelStyle"
+                                    android:text="@string/type"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/spinnerDestinationType"
+                                    style="@style/SpinnerThemeAddSequence"
+                                    app:adapter="@{viewModel.getSequenceLegTypeDestinationSpinnerAdapter}"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvSpinnerdestinationtype" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--            floor layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clAddDestinationFloor"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_1sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clSpinnerTypeDestinationLayout">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/addFloorDestinationLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/floor"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edAddDestinationFloor"
+                                        style="@style/editTextStyle"
+                                        android:text="@={data.destinationFloor}"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            <!--            Access layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerAccessDestinationLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_1sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clAddDestinationFloor">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/AccessDestination"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/access"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edDestinationaccess"
+                                        style="@style/editTextStyle"
+                                        android:text="@={data.destinationVehicleAccess}"
+                                        android:textSize="@dimen/_10ssp" />
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--            Stairs  layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clAddDestinationStairs"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_1sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clSpinnerAccessDestinationLayout">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/addStairDestinationLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/stairs"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/addStairDestination"
+                                        style="@style/editTextStyle"
+                                        android:text="@={data.destinationStairs}"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--            Distance layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clAddDestinationDistance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_1sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clAddDestinationStairs">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:baselineAligned="false"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputLayout
+                                        android:id="@+id/addDistanceDestinationLayout"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:hint="@string/distance"
+                                        android:theme="@style/TextInputLayoutAppearance"
+                                        app:boxBackgroundColor="@null"
+                                        app:boxStrokeWidth="0dp"
+                                        app:boxStrokeWidthFocused="0dp"
+                                        app:hintTextColor="@color/sixty_white"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <com.google.android.material.textfield.TextInputEditText
+                                            android:id="@+id/edaddDistanceDestination"
+                                            style="@style/editTextStyle"
+                                            android:inputType="number"
+                                            android:text="@={data.destinationDistance}"
+                                            android:textSize="@dimen/_10ssp" />
+
+                                    </com.google.android.material.textfield.TextInputLayout>
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/clSpinnerDistanceUnitDestination"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:id="@+id/tvSpinnerDistanceUnitDestination"
+                                            style="@style/SpinnerTopLabelStyle"
+                                            android:text="@string/distance_unit"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                        <!--todo change adapter value-->
+                                        <androidx.appcompat.widget.AppCompatSpinner
+                                            android:id="@+id/spinnerDistanceUnitDestination"
+                                            style="@style/SpinnerThemeAddSequence"
+                                            app:adapter="@{viewModel.getSequenceLegTypeOriginSpinnerAdapter}"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@id/tvSpinnerDistanceUnitDestination" />
+
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </LinearLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--distance unit layout-->
+                            <!--<androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerDistanceUnitDestination"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_2sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/clAddDestinationDistance">
+
+                                <TextView
+                                    android:id="@+id/tvSpinnerDistanceUnitDestination"
+                                    style="@style/SpinnerTopLabelStyle"
+                                    android:text="@string/distance_unit"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                &lt;!&ndash;todo change adapter value&ndash;&gt;
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/spinnerDistanceUnitDestination"
+                                    style="@style/SpinnerThemeAddSequence"
+                                    app:adapter="@{viewModel.getSequenceLegTypeOriginSpinnerAdapter}"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvSpinnerDistanceUnitDestination" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                            <!--checkbox long carry-->
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/cbLongCarryDestination"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:checked="@{data.isDestinationLongCarry}"
+                                android:text="@string/longcarry"
+                                android:textSize="@dimen/_7ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/clAddDestinationDistance" />
+
+                            <!--checkbox shuttle-->
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/cbShuttleDestination"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:checked="@{data.isDestinationShittle}"
+                                android:text="@string/shuttle"
+                                android:textSize="@dimen/_7ssp"
+                                app:layout_constraintStart_toEndOf="@id/cbLongCarryDestination"
+                                app:layout_constraintTop_toBottomOf="@id/clAddDestinationDistance" />
+
+                            <!--            Permit  layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerPermitDestinationLayout"
+                                style="@style/SpinnerCLTheme"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/cbLongCarryDestination">
+
+
+                                <TextView
+                                    android:id="@+id/tvSpinnerPermitDestination"
+                                    style="@style/SpinnerTopLabelStyle"
+                                    android:text="@string/permit"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/spinnerDestinationPermit"
+                                    style="@style/SpinnerTheme"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:imeOptions="actionNext"
+                                    android:spinnerMode="dropdown"
+                                    app:adapter="@{viewModel.getSequenceLegPermitDestinationSpinnerAdapter}"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvSpinnerPermitDestination" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--           Location layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clAddDestinationLocation"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clSpinnerPermitDestinationLayout">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/addLocationDestinationLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_border_rounded"
+                                    android:hint="@string/location"
+                                    android:padding="@dimen/_2sdp"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edaddLocationDestination"
+                                        style="@style/editTextStyle"
+                                        android:text="@={data.destinationLocation}"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            <!--           Elevator layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clAddDestinationElevator"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/clAddDestinationLocation">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/addDestinationElevatorLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_border_rounded"
+                                    android:hint="@string/elevator"
+                                    android:padding="@dimen/_2sdp"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edaddElevatorDestination"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@null"
+                                        android:inputType="number"
+                                        android:maxLength="3"
+                                        android:text="@={data.destinationElevator}"
+                                        android:textColorHint="@color/light_Gray"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <!--        textview allowance package delviery-->
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvAllowPackagingDelivery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="@string/allowance_packaging_delivery"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10sdp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/clAddDestinationLegs" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:paddingBottom="@dimen/_20sdp"
+                            app:layout_constraintTop_toBottomOf="@id/tvAllowPackagingDelivery">
+
+                            <!--            Allowance   layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerAllowanceLayout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_1sdp"
+                                app:layout_constraintEnd_toStartOf="@+id/clSpinnerDashLayout"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/allowanceLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/allowance"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edAllowance"
+                                        style="@style/editTextStyle"
+                                        android:inputType="number"
+                                        android:text="@={data.allowance}"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--            Dash   layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerDashLayout"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="1dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/clSpinnerAllowanceLayout"
+                                app:layout_constraintEnd_toStartOf="@+id/clSpinnerDistanceinPackagingLayout"
+                                app:layout_constraintStart_toEndOf="@+id/clSpinnerAllowanceLayout"
+                                app:layout_constraintTop_toTopOf="@id/clSpinnerAllowanceLayout">
+
+                                <TextView
+                                    android:id="@+id/tvspinnerallowanceType"
+                                    style="@style/SpinnerTopLabelStyle"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:text="@string/allowance_type_add"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/spinnerallowanceType"
+                                    style="@style/SpinnerThemeAddSequence"
+                                    android:layout_margin="@dimen/_1sdp"
+                                    app:adapter="@{viewModel.allowanceTypeSpinnerAdapter}"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvspinnerallowanceType" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--                distance  in allowing packaging and delivery-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerDistanceinPackagingLayout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_1sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/clSpinnerDashLayout"
+                                app:layout_constraintTop_toTopOf="parent">
+
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/DistanceinPackagingLegsLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/distance"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edDistanceinPackagingLegs"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@null"
+                                        android:inputType="number"
+                                        android:text="@={data.distance}"
+                                        android:textColorHint="@color/light_Gray"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--                delivery type layout -->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clSpinnerDeliveryTypeLayout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_16sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="1dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/clSpinnerDashLayout"
+                                app:layout_constraintHorizontal_weight="0.333"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/clSpinnerAllowanceLayout">
+
+                                <TextView
+                                    android:id="@+id/tvspinnerDeliveryType"
+                                    style="@style/SpinnerTopLabelStyle"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:text="@string/delivery_type"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/spinnerDeliveryType"
+                                    style="@style/SpinnerThemeAddSequence"
+                                    android:layout_margin="@dimen/_1sdp"
+                                    app:adapter="@{viewModel.deliveryTypeSpinnerAdapter}"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/tvspinnerDeliveryType" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!--            Packing date   layout-->
+                            <!--<androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clPackingDateLayout"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:drawableEnd="@drawable/ic_date_range"
+                                android:padding="@dimen/_2sdp"
+                                app:layout_constraintBottom_toBottomOf="@+id/clSpinnerDeliveryTypeLayout"
+                                app:layout_constraintEnd_toStartOf="@id/clDeliveryLayoutlegs"
+                                app:layout_constraintHorizontal_weight="0.333"
+                                app:layout_constraintStart_toEndOf="@id/clSpinnerDeliveryTypeLayout"
+                                app:layout_constraintTop_toTopOf="@+id/clSpinnerDeliveryTypeLayout">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/inputMoveDate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:endIconDrawable="@drawable/ic_calender_black"
+                                    app:endIconMode="custom"
+                                    app:endIconTint="@color/black"
+                                    app:hintTextColor="@color/light_Gray"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/tvPackingDate"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@null"
+                                        android:focusable="false"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:hint="@string/packingdate"
+                                        android:imeOptions="actionNext"
+                                        android:inputType="date"
+                                        android:text="fdsfsd"
+                                        app:convertDateTimeSet="@{data.pakingDate}" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/inputMoveDate"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:theme="@style/TextInputLayoutAppearance"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:endIconDrawable="@drawable/ic_calender_black"
+                                app:endIconMode="custom"
+                                app:endIconTint="@color/black"
+                                app:hintTextColor="@color/warm_grey"
+                                app:layout_constraintBottom_toBottomOf="@+id/clSpinnerDeliveryTypeLayout"
+                                app:layout_constraintEnd_toStartOf="@id/clSpinnerDistanceinPackagingLayout"
+                                app:layout_constraintHorizontal_weight="0.333"
+                                app:layout_constraintStart_toEndOf="@id/clSpinnerDeliveryTypeLayout"
+                                app:layout_constraintTop_toTopOf="@+id/clSpinnerDeliveryTypeLayout">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/tvPackingDate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/bg_border_rounded"
+                                    android:focusable="false"
+                                    android:hint="@string/move_date"
+                                    android:inputType="date" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!--                Delivery layout-->
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clDeliveryLayoutlegs"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:background="@drawable/bg_border_rounded"
+                                android:padding="@dimen/_1sdp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_weight="0.333"
+                                app:layout_constraintStart_toEndOf="@id/inputMoveDate"
+                                app:layout_constraintTop_toBottomOf="@+id/clSpinnerDistanceinPackagingLayout">
+
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/deliverylegsLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/delivery"
+                                    android:theme="@style/TextInputLayoutAppearance"
+                                    app:boxBackgroundColor="@null"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/sixty_white"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edDeliverylegs"
+                                        style="@style/editTextStyle"
+                                        android:inputType="number"
+                                        android:text=""
+                                        android:textSize="@dimen/_10ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancelAddLegs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/bg_light_grey_border_rounded"
+            android:text="@string/cancel"
+            android:textColor="@color/navy_blue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnSaveAddLegs"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSaveAddLegs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/bg_yello_button_cornered"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnCancelAddLegs" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+

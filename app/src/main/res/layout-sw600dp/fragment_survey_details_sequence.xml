@@ -1,0 +1,1665 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.pickfords.surveyorapp.model.surveyDetails.SaveSequenceModel" />
+
+        <variable
+            name="itemData"
+            type="com.pickfords.surveyorapp.model.surveyDetails.SequenceTypeModel" />
+
+        <variable
+            name="viewModel"
+            type="com.pickfords.surveyorapp.viewModel.surveyDetails.SurveyDetailsSequenceViewModel" />
+
+        <variable
+            name="itemDataShowLegsModel"
+            type="com.pickfords.surveyorapp.model.surveyDetails.ShowLegsModel" />
+
+        <!--   <variable
+               name="legModel"
+               type="com.pickfords.surveyorapp.model.surveyDetails.LegListBySequenceIdModel" />
+   -->
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.surveyhistory.SurveyDetailsSequenceFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--text sequnece layout-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clSequence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryLight"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:text="@string/sequence"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_down_arrow" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--add or remove the sequence -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAddRemove"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clSequence">
+
+                <!--        Spinner setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/spinnerLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_4sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnAddSequence"
+                    app:layout_constraintHorizontal_weight="0.80"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="@string/sequence"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spinnerSequence"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:selectedItemPosition="@={viewModel.selectedPosition}"
+                        android:selection="@{viewModel.selectedPosition}"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        app:adapter="@{viewModel.getSequenceSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinner"
+                        app:setOnItemSelectedListener="@{viewModel.clicksListener}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAddSequence"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/bg_yello_button_cornered"
+                    android:padding="@dimen/_8sdp"
+                    android:text="@string/add"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/spinnerLayout"
+                    app:layout_constraintEnd_toStartOf="@+id/btnRemoveSequence"
+                    app:layout_constraintHorizontal_weight="0.25"
+                    app:layout_constraintStart_toEndOf="@+id/spinnerLayout"
+                    app:layout_constraintTop_toTopOf="@+id/spinnerLayout" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRemoveSequence"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/bg_grey_button_cornered"
+                    android:padding="@dimen/_8sdp"
+                    android:text="@string/remove"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/spinnerLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="0.25"
+                    app:layout_constraintStart_toEndOf="@+id/btnAddSequence"
+                    app:layout_constraintTop_toTopOf="@+id/spinnerLayout" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--edit or copy the sequence -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAEditCopy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/_8sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clAddRemove">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnEditSequence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/bg_yello_button_cornered"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/edit_sequence"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8sdp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/spinnerLayout1"
+                        app:layout_constraintEnd_toStartOf="@+id/btnCopySequence"
+                        app:layout_constraintHorizontal_weight="0.25"
+                        app:layout_constraintStart_toEndOf="@+id/spinnerLayout1"
+                        app:layout_constraintTop_toTopOf="@+id/spinnerLayout1" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnCopySequence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/bg_yello_button_cornered"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/copy_sequence"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/spinnerLayout1"
+                        app:layout_constraintEnd_toStartOf="@+id/btnCopySequence"
+                        app:layout_constraintHorizontal_weight="0.25"
+                        app:layout_constraintStart_toEndOf="@+id/spinnerLayout1"
+                        app:layout_constraintTop_toTopOf="@+id/spinnerLayout1" />
+
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--sequence Details-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clSequenceDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryLight"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clAEditCopy">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:text="@string/sequence_details"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_down_arrow" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--    all sequence detailss inside this constraint -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/allSequenceDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/_4sdp"
+                app:layout_constraintTop_toBottomOf="@+id/clSequenceDetails">
+
+                <!--        Spinner type  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnertypeLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/clSpinnerLableToUse"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvSpinnertype"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/sequence_type"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spinnerSeqType"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        app:adapter="@{viewModel.sequenceTypeSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnertype"
+                        app:setOnItemSelectedListener="@{viewModel.customerClickListener}"
+                        tools:entries="@array/addresses_array" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--        Spinner lable to use  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerLableToUse"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/clSpinnertypeLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clSpinnertypeLayout"
+                    app:layout_constraintTop_toTopOf="@+id/clSpinnertypeLayout">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/labletoseLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/sequence_name"
+                        android:textSize="@dimen/_6ssp"
+                        app:boxBackgroundColor="@null"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:hintTextColor="@color/sixty_white"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edLableTouse"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:clickable="false"
+                            android:enabled="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:text="@={data.labelToUse}"
+                            android:textColorHint="@color/sixty_white"
+                            android:textSize="@dimen/_6ssp"
+                            tools:text="PF000011-95" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!--        Spinner group  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clspinnerGroupLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@+id/clSpinnerSeqMode"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clSpinnertypeLayout">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/sequence_group"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinnerSeqGroup"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_grey_spinner"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        android:visibility="gone"
+                        app:adapter="@{viewModel.sequenceGroupSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerGroup"
+                        tools:entries="@array/addresses_array" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvSeqGroup"
+                        style="@style/regular_black_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/arrow_down"
+                        android:paddingVertical="@dimen/_2sdp"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:text="@{itemData.sequenceGroup}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerGroup"
+                        tools:text="dvtscdt" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--        Spinner mode setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerSeqMode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clspinnerGroupLayout"
+                    app:layout_constraintTop_toTopOf="@+id/clspinnerGroupLayout">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerSeqMode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/sequence_mode"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinnerMode"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_grey_spinner"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        android:visibility="gone"
+                        app:adapter="@{viewModel.sequenceModeSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerSeqMode"
+                        tools:entries="@array/addresses_array"
+                        tools:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMode"
+                        style="@style/regular_black_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/arrow_down"
+                        android:paddingVertical="@dimen/_2sdp"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:text="@{itemData.sequenceMode}"
+                        android:textSize="@dimen/_6ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerSeqMode"
+                        tools:text="bsvhdbvhs" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--        Spinner mode setup-->
+                <!--<androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerinsuranceRequired"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clspinnerGroupLayout">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerinsuranceRequired"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="@string/insurance_required"
+                        app:layout_constraintEnd_toStartOf="@id/radioInsuranceRequired"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RadioGroup
+                        android:id="@+id/radioInsuranceRequired"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="@id/tvSpinnerinsuranceRequired"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvSpinnerinsuranceRequired"
+                        app:layout_constraintTop_toTopOf="@id/tvSpinnerinsuranceRequired">
+
+                        <RadioButton
+                            android:id="@+id/rbYes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:buttonTint="@color/black"
+                            android:checked="true"
+                            android:text="@string/yes"
+                            android:textColor="@color/warm_grey" />
+
+                        <RadioButton
+                            android:id="@+id/rbNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:buttonTint="@color/black"
+                            android:text="@string/no"
+                            android:textColor="@color/warm_grey" />
+
+                    </RadioGroup>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>-->
+                <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                    android:id="@+id/clSpinnerinsuranceRequired"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="0dp"-->
+                <!--                    android:layout_marginStart="@dimen/_10sdp"-->
+                <!--                    android:layout_marginTop="@dimen/_8sdp"-->
+                <!--                    android:background="@drawable/bg_border_rounded"-->
+                <!--                    android:padding="@dimen/_2sdp"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="@+id/clSpinnerInsuranceValue"-->
+                <!--                    app:layout_constraintEnd_toStartOf="@+id/clSpinnerInsuranceValue"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/clspinnerGroupLayout">-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/tvSpinnerinsuranceRequired"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_marginStart="@dimen/_9sdp"-->
+                <!--                        android:fontFamily="@font/roboto_regular"-->
+                <!--                        android:includeFontPadding="false"-->
+                <!--                        android:text="@string/insurance_required"-->
+                <!--                        android:textColor="@color/black2_opt_60"-->
+                <!--                        android:textFontWeight="400"-->
+                <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--                    <androidx.appcompat.widget.AppCompatSpinner-->
+                <!--                        android:id="@+id/spinnerInsuranceRequired"-->
+                <!--                        style="@style/SpinnerTheme"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:dropDownSelector="@drawable/ic_down_arrow"-->
+                <!--                        android:fontFamily="@font/poppins_semibold"-->
+                <!--                        android:imeOptions="actionNext"-->
+                <!--                        android:paddingVertical="@dimen/_4sdp"-->
+                <!--                        android:paddingStart="@dimen/_6sdp"-->
+                <!--                        android:paddingEnd="@dimen/_8sdp"-->
+                <!--                        android:spinnerMode="dropdown"-->
+                <!--                        app:adapter="@{viewModel.insuranceRequiredSpinnerAdapter}"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                <!--                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerinsuranceRequired"-->
+                <!--                        tools:entries="@array/addresses_array" />-->
+
+                <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                <!--        Spinner insurance value  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerInsuranceValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clspinnerGroupLayout">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/insuranceamountLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/insurance_value"
+                        android:textSize="@dimen/_6ssp"
+                        app:boxBackgroundColor="@null"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:hintTextColor="@color/sixty_white"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edInsuranceamount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:inputType="number"
+                            android:text="@={data.insuranceAmount}"
+                            android:textColorHint="@color/light_Gray"
+                            android:textSize="@dimen/_6ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--        Spinner From Address Leg  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clFromAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/clSpinnerToAddress"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clSpinnerInsuranceValue">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerFromAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="From Address"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinnerFromAddress"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:dropDownSelector="@drawable/ic_down_arrow"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        app:adapter="@{viewModel.addressSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerFromAddress" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFromAddress"
+                        style="@style/regular_black_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:drawableEnd="@drawable/arrow_down"
+                        android:text="@{itemData.packingMethod}"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerFromAddress" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--        Spinner To Address  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerToAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clFromAddress"
+                    app:layout_constraintTop_toBottomOf="@+id/clSpinnerInsuranceValue">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerToAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="To Address"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinnerToAddress"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:dropDownSelector="@drawable/ic_down_arrow"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        app:adapter="@{viewModel.addressSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerToAddress" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvToAddress"
+                        style="@style/regular_black_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:drawableEnd="@drawable/arrow_down"
+                        android:text="@{itemData.shipmentMethod}"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerToAddress" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!--        Spinner packing method  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerPackingMethod"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/clSpinnerShipmentmethod"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clSpinnerInsuranceValue">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerPackingMethod"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/packing_method"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spinnerPackingMethod"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:dropDownSelector="@drawable/ic_down_arrow"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        app:adapter="@{viewModel.packingMethodSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerPackingMethod"
+                        tools:entries="@array/addresses_array" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPackingMethod"
+                        style="@style/regular_black_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:drawableEnd="@drawable/arrow_down"
+                        android:text="@{itemData.packingMethod}"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerPackingMethod" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--        Spinner Shipment method  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerShipmentmethod"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clSpinnerPackingMethod"
+                    app:layout_constraintTop_toBottomOf="@+id/clSpinnerInsuranceValue">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerShipmentmethod"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/shipping_method"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spinnerShipmentmethod"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:dropDownSelector="@drawable/ic_down_arrow"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        app:adapter="@{viewModel.shoppingMethodSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerShipmentmethod"
+                        tools:entries="@array/addresses_array" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvShipmentMethod"
+                        style="@style/regular_black_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:drawableEnd="@drawable/arrow_down"
+                        android:text="@{itemData.shipmentMethod}"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerShipmentmethod" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvHeaderAllowance"
+                    style="@style/medium_semi_bold_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="@string/allowance_packaging_delivery"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/clSpinnerPackingMethod" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerAllowance"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/clSpinnerDashLayout"
+                    app:layout_constraintEnd_toStartOf="@+id/clSpinnerDashLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHeaderAllowance">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputAllowance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/allowance"
+                        android:textSize="@dimen/_6ssp"
+
+                        app:boxBackgroundColor="@null"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:hintTextColor="@color/sixty_white"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edInputAllowance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:inputType="numberDecimal"
+                            android:text="@={data.allowance}"
+                            android:textColorHint="@color/light_Gray"
+                            android:textSize="@dimen/_6ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerDashLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clSpinnerAllowance"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHeaderAllowance">
+
+                    <TextView
+                        android:id="@+id/tvspinnerallowanceType"
+                        style="@style/SpinnerTopLabelStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/allowance_type_add"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spinnerallowanceType"
+                        style="@style/SpinnerThemeAddSequence"
+                        android:layout_margin="@dimen/_1sdp"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        app:adapter="@{viewModel.allowanceTypeSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvspinnerallowanceType"
+                        tools:entries="@array/addresses_array" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerDistance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@+id/clSpinnerPacking"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clSpinnerAllowance">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputDistance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/distance"
+                        android:textSize="@dimen/_6ssp"
+
+                        app:boxBackgroundColor="@null"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:hintTextColor="@color/sixty_white"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edInputDistance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:inputType="numberDecimal"
+                            android:text="@={data.distance}"
+                            android:textColorHint="@color/light_Gray"
+                            android:textSize="@dimen/_6ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerPacking"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clSpinnerDistance"
+                    app:layout_constraintTop_toBottomOf="@+id/clSpinnerAllowance">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputPacking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/packing_date"
+                        android:textSize="@dimen/_6ssp"
+
+                        app:boxBackgroundColor="@null"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:endIconDrawable="@drawable/ic_calender_black"
+                        app:endIconMode="custom"
+                        app:endIconTint="@color/black"
+                        app:hintTextColor="@color/sixty_white"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edInputPacking"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:focusable="false"
+                            android:inputType="none"
+                            android:text="@={data.pakingDate}"
+                            android:textColorHint="@color/light_Gray"
+                            android:textSize="@dimen/_6ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--        Spinner From Address  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clFromAddress1"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/clSpinnerToAddress2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clSpinnerDistance"
+                    app:layout_goneMarginTop="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerFromAddress1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="From Address"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spinnerFromAddress1"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:dropDownSelector="@drawable/ic_down_arrow"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        app:adapter="@{viewModel.addressSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerFromAddress1"
+                        tools:entries="@array/addresses_array" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFromAddress1"
+                        style="@style/regular_black_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:drawableEnd="@drawable/arrow_down"
+                        android:text="@{itemData.packingMethod}"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerFromAddress1" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--        Spinner To Address  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerToAddress2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clFromAddress1"
+                    app:layout_constraintTop_toBottomOf="@+id/clSpinnerPacking"
+                    app:layout_goneMarginTop="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerToAddress2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="To Address"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spinnerToAddress2"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:dropDownSelector="@drawable/ic_down_arrow"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:selection="@{viewModel.selectedPositionAddress}"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        app:adapter="@{viewModel.addressSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerToAddress2"
+                        tools:entries="@array/addresses_array" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvToAddress2"
+                        style="@style/regular_black_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:drawableEnd="@drawable/arrow_down"
+                        android:text="@{itemData.shipmentMethod}"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerToAddress2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                delivery type layout -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerDeliveryTypeLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@+id/clSpinnerDelivery"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clFromAddress1">
+
+                    <TextView
+                        android:id="@+id/tvspinnerDeliveryType"
+                        style="@style/SpinnerTopLabelStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/delivery_type"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinnerDeliveryType"
+                        style="@style/SpinnerThemeAddSequence"
+                        android:layout_margin="@dimen/_1sdp"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        app:adapter="@{viewModel.deliveryTypeSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvspinnerDeliveryType"
+                        tools:entries="@array/addresses_array" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerDelivery"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/clSpinnerDeliveryTypeLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clSpinnerDeliveryTypeLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/clFromAddress1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputDelivery"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/delivery_date"
+                        android:textSize="@dimen/_6ssp"
+
+                        app:boxBackgroundColor="@null"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:endIconDrawable="@drawable/ic_calender_black"
+                        app:endIconMode="custom"
+                        app:endIconTint="@color/black"
+                        app:hintTextColor="@color/sixty_white"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edInputDelivery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:focusable="false"
+                            android:inputType="none"
+                            android:text="@={data.delivery}"
+                            android:textColorHint="@color/light_Gray"
+                            android:textSize="@dimen/_6ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clAddOriginDistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_1sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clSpinnerDeliveryTypeLayout">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/addStairOriginLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/distance"
+                            android:textAppearance="@style/TextInputLayoutAppearance"
+                            app:boxBackgroundColor="@null"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:hintTextColor="@color/sixty_white"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edaddDistanceOrigin"
+                                style="@style/editTextStyle"
+                                android:text="@={data.distance}"
+                                android:textSize="@dimen/_8ssp"
+                                android:inputType="numberDecimal"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clSpinnerDistanceUnitOrigin"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tvSpinnerDistanceUnitOrigin"
+                                style="@style/SpinnerTopLabelStyle"
+                                android:text="@string/distance_unit"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <!--todo change adapter value-->
+                            <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                                android:id="@+id/spinnerDistanceUnitOrigin"
+                                style="@style/SpinnerThemeAddSequence"
+                                app:adapter="@{viewModel.getSequenceLegDestinationDistanceTypeSpinnerAdapter()}"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvSpinnerDistanceUnitOrigin" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSaveSequence"
+                    style="@style/RoundedYellowButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="@string/save_sequence"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clAddOriginDistance" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--Legs constraint-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clLegsDropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@color/colorPrimaryLight"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/allSequenceDetails">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:text="@string/legs"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_down_arrow" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--add or remove the sequence -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAddRemoveLeg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clLegsDropdown">
+
+                <!--        Spinner setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/spinnerLayoutLeg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_4sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnAddSequenceLeg"
+                    app:layout_constraintHorizontal_weight="0.80"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerLeg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="@string/leg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spinnerSequenceLeg"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:padding="@dimen/_2sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        app:adapter="@{viewModel.getLegListSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerLeg"
+                        app:setOnItemSelectedListener="@{viewModel.clicksListenerLegs}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAddSequenceLeg"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/bg_yello_button_cornered"
+                    android:padding="@dimen/_8sdp"
+                    android:text="@string/add"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/spinnerLayoutLeg"
+                    app:layout_constraintEnd_toStartOf="@+id/btnRemoveSequenceLeg"
+                    app:layout_constraintHorizontal_weight="0.25"
+                    app:layout_constraintStart_toEndOf="@+id/spinnerLayoutLeg"
+                    app:layout_constraintTop_toTopOf="@+id/spinnerLayoutLeg" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRemoveSequenceLeg"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/bg_grey_button_cornered"
+                    android:padding="@dimen/_8sdp"
+                    android:text="@string/remove"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/spinnerLayoutLeg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="0.25"
+                    app:layout_constraintStart_toEndOf="@+id/btnAddSequenceLeg"
+                    app:layout_constraintTop_toTopOf="@+id/spinnerLayoutLeg" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--legs Details Constraint-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAddlegsMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@+id/clAddRemoveLeg">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/addlegsLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:hint="@string/legs_number"
+                    android:padding="@dimen/_2sdp"
+                    android:textSize="@dimen/_6ssp"
+                    android:visibility="gone"
+                    app:boxBackgroundColor="@null"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/sixty_white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="0.6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edEnterLegs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:clickable="false"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:text="@={itemDataShowLegsModel.surveySequenceLeg}"
+                        android:textColorHint="@color/light_Gray"
+                        android:textSize="@dimen/_8sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--        Spinner From Address Leg  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clFromAddressLeg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/clSpinnerToAddressLeg"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/addlegsLayout"
+                    app:layout_goneMarginTop="0dp">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerFromAddressLeg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="From Address"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spinnerFromAddressLeg"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:dropDownSelector="@drawable/ic_down_arrow"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        app:adapter="@{viewModel.addressSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerFromAddressLeg"
+                        tools:entries="@array/addresses_array" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFromAddressLeg"
+                        style="@style/regular_black_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:drawableEnd="@drawable/arrow_down"
+                        android:text="@{itemData.packingMethod}"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerFromAddressLeg" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--        Spinner To Address  setup-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerToAddressLeg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/clFromAddressLeg"
+                    app:layout_constraintTop_toBottomOf="@+id/addlegsLayout"
+                    app:layout_goneMarginTop="0dp">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerToAddressLeg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:includeFontPadding="false"
+                        android:text="To Address"
+                        android:textColor="@color/black2_opt_60"
+                        android:textFontWeight="400"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spinnerToAddressLeg"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:dropDownSelector="@drawable/ic_down_arrow"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:spinnerMode="dropdown"
+                        android:textSize="@dimen/_6ssp"
+                        app:adapter="@{viewModel.addressSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerToAddressLeg"
+                        tools:entries="@array/addresses_array" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvToAddressLeg"
+                        style="@style/regular_black_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:drawableEnd="@drawable/arrow_down"
+                        android:text="@{itemData.shipmentMethod}"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerToAddressLeg" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSaveLegs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/bg_yello_button_cornered"
+                    android:padding="@dimen/_8sdp"
+                    android:text="@string/save"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clFromAddressLeg"
+                    tools:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewShowLegs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:adapter="@{viewModel.showLegsAdapter}"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/clFromAddressLeg"
+                    tools:listitem="@layout/item_show_legs" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

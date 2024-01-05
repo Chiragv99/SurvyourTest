@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainData"
+            type="com.pickfords.surveyorapp.model.dashboard.DashboardModel" />
+
+        <variable
+            name="viewModel"
+            type="com.pickfords.surveyorapp.viewModel.surveyDetails.InventoryViewModel" />
+
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/_4sdp">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/ll_Top"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" >
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/txtTotalVolume"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left|center"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="left|center"
+                                android:text="Total Volume : 0.0"
+                                android:textColor="@color/selector_checkable_text_color"
+                                android:textSize="@dimen/_10ssp" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/btnApproveAdmin"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:drawablePadding="0dp"
+                                android:layout_gravity="start"
+                                android:enabled="@{viewModel.itemEnabled}"
+                                android:fontFamily="@font/poppins_medium"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="@string/approve_admin"
+                                android:textColor="@color/selector_checkable_text_color"
+                                android:textSize="@dimen/_6ssp"
+                                android:layout_weight="1"/>
+
+                        </LinearLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cvFloorSpinner"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:background="@drawable/bg_border_rounded"
+                            android:padding="@dimen/_2sdp"
+                            app:layout_constraintEnd_toStartOf="@+id/cvRoomSpinner"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ll_Top">
+
+                            <TextView
+                                android:id="@+id/tvFloorSpinnerTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_regular"
+                                android:paddingStart="@dimen/_4sdp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/floor"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                                android:id="@+id/spnFloor"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_spinner"
+                                android:entries="@array/string_array"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:imeOptions="actionNext"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvFloorSpinnerTitle"
+                                app:setOnItemSelectedListener="@{viewModel.floorClicksListener}" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cvRoomSpinner"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:background="@drawable/bg_border_rounded"
+                            android:padding="@dimen/_2sdp"
+                            app:layout_constraintEnd_toStartOf="@id/cvSequenceSpinner"
+                            app:layout_constraintStart_toEndOf="@+id/cvFloorSpinner"
+                            app:layout_constraintTop_toBottomOf="@+id/ll_Top">
+
+                            <TextView
+                                android:id="@+id/tvRoomSpinnerTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_regular"
+                                android:paddingStart="@dimen/_4sdp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/room"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                                android:id="@+id/spnRoom"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_spinner"
+                                android:entries="@array/string_array"
+                                android:fontFamily="@font/roboto_regular"
+                                android:imeOptions="actionNext"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvRoomSpinnerTitle"
+                                app:setOnItemSelectedListener="@{viewModel.roomClicksListener}" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cvSequenceSpinner"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_border_rounded"
+                            android:padding="@dimen/_2sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/cvRoomSpinner"
+                            app:layout_constraintTop_toBottomOf="@id/ll_Top">
+
+                            <TextView
+                                android:id="@+id/tvSequenceSpinnerTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_regular"
+                                android:paddingStart="@dimen/_4sdp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/sequence"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                                android:id="@+id/spnSequence"
+                                style="@style/SpinnerTheme"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:dropDownSelector="@drawable/ic_down_arrow"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:imeOptions="actionNext"
+                                android:spinnerMode="dropdown"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvSequenceSpinnerTitle"
+                                app:setOnItemSelectedListener="@{viewModel.sequenceClicksListener}" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cvLegsSpinner"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:background="@drawable/bg_border_rounded"
+                            android:padding="@dimen/_2sdp"
+                            app:layout_constraintEnd_toStartOf="@+id/cvCountSpinner"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cvRoomSpinner">
+
+                            <TextView
+                                android:id="@+id/tvLegsSpinnerTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_regular"
+                                android:paddingStart="@dimen/_4sdp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/legs"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                                android:id="@+id/spnLegs"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_spinner"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:imeOptions="actionNext"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvLegsSpinnerTitle"
+                                app:setOnItemSelectedListener="@{viewModel.legClicksListener}" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cvCountSpinner"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            app:layout_constraintEnd_toStartOf="@id/cvVolumeSpinner"
+                            app:layout_constraintStart_toEndOf="@id/cvLegsSpinner"
+                            app:layout_constraintTop_toBottomOf="@id/cvRoomSpinner">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tvCountSpinnerTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:hintTextColor="@color/black2"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/spnCount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_border_rounded"
+                                    android:hint="@string/count"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+                                    android:maxLength="4"
+                                    android:text="1" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cvVolumeSpinner"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="@id/cvCountSpinner"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/cvCountSpinner"
+                            app:layout_constraintTop_toTopOf="@id/cvCountSpinner">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/inputVolume"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:hintTextColor="@color/black2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edtInputVolume"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_border_rounded"
+                                    android:hint="@string/volume"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+                                    android:text="@{viewModel.volume}" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cvItemRoomName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:padding="1dp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toStartOf="@+id/ll_ItemValue"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cvVolumeSpinner">
+
+                            <!--                            <LinearLayout-->
+                            <!--                                android:layout_width="match_parent"-->
+                            <!--                                android:layout_height="wrap_content"-->
+                            <!--                                android:weightSum="2"-->
+                            <!--                                android:gravity="center"-->
+                            <!--                                android:orientation="horizontal"-->
+                            <!--                                tools:ignore="MissingConstraints">-->
+
+                            <!--                                <com.google.android.material.textfield.TextInputLayout-->
+                            <!--                                    android:id="@+id/tvItemRoomName"-->
+                            <!--                                    android:layout_width="match_parent"-->
+                            <!--                                    android:layout_height="wrap_content"-->
+                            <!--                                    android:layout_weight="1.5"-->
+                            <!--                                    android:theme="@style/TextInputLayoutAppearance"-->
+                            <!--                                    app:boxStrokeWidth="0dp"-->
+                            <!--                                    app:boxStrokeWidthFocused="0dp"-->
+                            <!--                                    app:hintTextColor="@color/black2"-->
+                            <!--                                    app:layout_constraintEnd_toEndOf="parent"-->
+                            <!--                                    app:layout_constraintStart_toStartOf="parent"-->
+                            <!--                                    app:layout_constraintTop_toTopOf="parent">-->
+
+                            <!--                                    <com.google.android.material.textfield.TextInputEditText-->
+                            <!--                                        android:id="@+id/edtItemRoomName"-->
+                            <!--                                        android:layout_width="match_parent"-->
+                            <!--                                        android:layout_height="wrap_content"-->
+                            <!--                                        android:background="@drawable/bg_border_rounded"-->
+                            <!--                                        android:enabled="@{viewModel.roomNameEnabled}"-->
+                            <!--                                        android:hint="@string/room_name"-->
+                            <!--                                        android:inputType="text" />-->
+                            <!--                                </com.google.android.material.textfield.TextInputLayout>-->
+
+                            <!--                                <RadioButton-->
+                            <!--                                    android:id="@+id/btnRenameRoom"-->
+                            <!--                                    style="@style/CustomGreyButtonStyle"-->
+                            <!--                                    android:layout_weight="0.5"-->
+                            <!--                                    android:background="@drawable/bg_rect_grey"-->
+                            <!--                                    android:button="@null"-->
+                            <!--                                    android:gravity="center"-->
+                            <!--                                    android:visibility="gone"-->
+                            <!--                                    android:padding="@dimen/_5sdp"-->
+                            <!--                                    android:layout_marginLeft="@dimen/_10sdp"-->
+                            <!--                                    android:text="@string/update"-->
+                            <!--                                    android:textColor="@color/black"-->
+                            <!--                                    android:textSize="@dimen/_6ssp"-->
+                            <!--                                    android:layout_gravity="center"-->
+                            <!--                                    tools:ignore="MissingConstraints" />-->
+
+                            <!--                            </LinearLayout>-->
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="2"
+                                tools:ignore="MissingConstraints">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/tvItemRoomName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:textAppearance="@style/TextInputLayoutAppearance"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/black2"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edtItemRoomName"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bg_border_rounded"
+                                        android:enabled="@{viewModel.roomNameEnabled}"
+                                        android:hint="@string/floor_name"
+                                        android:inputType="text" />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <RadioButton
+                                    android:id="@+id/btnRenameRoom"
+                                    style="@style/CustomGreyButtonStyle"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:layout_weight="0.5"
+                                    android:background="@drawable/bg_rect_grey"
+                                    android:button="@null"
+                                    android:gravity="center"
+                                    android:padding="@dimen/_5sdp"
+                                    android:text="@string/update"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_6ssp"
+                                    android:visibility="gone"
+                                    tools:ignore="MissingConstraints"
+                                    tools:visibility="visible" />
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/ll_ItemValue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cvVolumeSpinner">
+
+                            <!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+                            <!--                            android:id="@+id/cvItemRoomName"-->
+                            <!--                            android:layout_width="match_parent"-->
+                            <!--                            android:layout_height="wrap_content"-->
+                            <!--                            android:layout_marginTop="@dimen/_8sdp"-->
+                            <!--                            android:padding="1dp"-->
+                            <!--                            android:layout_weight="1"-->
+                            <!--                            app:layout_constraintEnd_toStartOf="@+id/btnApproveAdmin"-->
+                            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                            <!--                            app:layout_constraintTop_toBottomOf="@+id/cvCountSpinner">-->
+
+                            <!--&lt;!&ndash;                            <LinearLayout&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                android:layout_width="match_parent"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                android:weightSum="2"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                android:gravity="center"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                android:orientation="horizontal"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                tools:ignore="MissingConstraints">&ndash;&gt;-->
+
+                            <!--&lt;!&ndash;                                <com.google.android.material.textfield.TextInputLayout&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:id="@+id/tvItemRoomName"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:layout_width="match_parent"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:layout_height="wrap_content"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:layout_weight="1.5"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:theme="@style/TextInputLayoutAppearance"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    app:boxStrokeWidth="0dp"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    app:boxStrokeWidthFocused="0dp"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    app:hintTextColor="@color/black2"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    app:layout_constraintTop_toTopOf="parent">&ndash;&gt;-->
+
+                            <!--&lt;!&ndash;                                    <com.google.android.material.textfield.TextInputEditText&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                        android:id="@+id/edtItemRoomName"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                        android:layout_width="match_parent"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                        android:layout_height="wrap_content"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                        android:background="@drawable/bg_border_rounded"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                        android:enabled="@{viewModel.roomNameEnabled}"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                        android:hint="@string/room_name"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                        android:inputType="text" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                </com.google.android.material.textfield.TextInputLayout>&ndash;&gt;-->
+
+                            <!--&lt;!&ndash;                                <RadioButton&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:id="@+id/btnRenameRoom"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    style="@style/CustomGreyButtonStyle"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:layout_weight="0.5"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:background="@drawable/bg_rect_grey"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:button="@null"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:gravity="center"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:visibility="gone"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:padding="@dimen/_5sdp"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:layout_marginLeft="@dimen/_10sdp"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:text="@string/update"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:textColor="@color/black"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:textSize="@dimen/_6ssp"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    android:layout_gravity="center"&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
+
+                            <!--&lt;!&ndash;                            </LinearLayout>&ndash;&gt;-->
+
+
+                            <!--                            <LinearLayout-->
+                            <!--                                android:layout_width="match_parent"-->
+                            <!--                                android:layout_height="wrap_content"-->
+                            <!--                                android:weightSum="2"-->
+                            <!--                                android:gravity="center"-->
+                            <!--                                android:orientation="horizontal"-->
+                            <!--                                tools:ignore="MissingConstraints">-->
+
+                            <!--                                <com.google.android.material.textfield.TextInputLayout-->
+                            <!--                                    android:id="@+id/tvItemRoomName"-->
+                            <!--                                    android:layout_width="match_parent"-->
+                            <!--                                    android:layout_height="wrap_content"-->
+                            <!--                                    android:layout_weight="1.5"-->
+                            <!--                                    android:textAppearance="@style/TextInputLayoutAppearance"-->
+                            <!--                                    app:boxStrokeWidth="0dp"-->
+                            <!--                                    app:boxStrokeWidthFocused="0dp"-->
+                            <!--                                    app:hintTextColor="@color/black2"-->
+                            <!--                                    app:layout_constraintEnd_toEndOf="parent"-->
+                            <!--                                    app:layout_constraintStart_toStartOf="parent"-->
+                            <!--                                    app:layout_constraintTop_toTopOf="parent">-->
+
+                            <!--                                    <com.google.android.material.textfield.TextInputEditText-->
+                            <!--                                        android:id="@+id/edtItemRoomName"-->
+                            <!--                                        android:layout_width="match_parent"-->
+                            <!--                                        android:layout_height="wrap_content"-->
+                            <!--                                        android:background="@drawable/bg_border_rounded"-->
+                            <!--                                        android:enabled="@{viewModel.roomNameEnabled}"-->
+                            <!--                                        android:hint="@string/floor_name"-->
+                            <!--                                        android:inputType="text" />-->
+                            <!--                                </com.google.android.material.textfield.TextInputLayout>-->
+
+                            <!--                                <RadioButton-->
+                            <!--                                    android:id="@+id/btnRenameRoom"-->
+                            <!--                                    style="@style/CustomGreyButtonStyle"-->
+                            <!--                                    android:layout_weight="0.5"-->
+                            <!--                                    android:background="@drawable/bg_rect_grey"-->
+                            <!--                                    android:button="@null"-->
+                            <!--                                    android:gravity="center"-->
+                            <!--                                    android:visibility="gone"-->
+                            <!--                                    android:padding="@dimen/_5sdp"-->
+                            <!--                                    android:layout_marginLeft="@dimen/_10sdp"-->
+                            <!--                                    android:text="@string/update"-->
+                            <!--                                    android:textColor="@color/black"-->
+                            <!--                                    android:textSize="@dimen/_6ssp"-->
+                            <!--                                    android:layout_gravity="center"-->
+                            <!--                                    tools:ignore="MissingConstraints" />-->
+
+                            <!--                            </LinearLayout>-->
+
+                            <!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cvItemName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_weight="1">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/tvItemName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/black2"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edtItemName"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bg_border_rounded"
+                                        android:enabled="@{viewModel.itemEnabled}"
+                                        android:hint="@string/item_name"
+                                        android:inputType="text"
+                                        android:text="@={viewModel.itemName}" />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cvItemValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_weight="1"
+                                app:layout_constraintEnd_toStartOf="@+id/btnApproveAdmin"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/cvItemName">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/tvItemValue"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxStrokeWidthFocused="0dp"
+                                    app:hintTextColor="@color/black2"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/edtItemValue"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bg_border_rounded"
+                                        android:hint="@string/item_value"
+                                        android:inputType="number"
+                                        android:text="@={viewModel.itemValue}" />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+
+
+                        <!--<androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnApproveAdmin"
+                            style="@style/RoundedYellowButtonStyle"
+                            android:layout_width="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginEnd="@dimen/_2sdp"
+                            android:enabled="@{viewModel.itemEnabled}"
+                            android:text="@string/approve_admin"
+                            android:textSize="@dimen/_8ssp"
+                            app:layout_constraintBottom_toBottomOf="@id/cvItemName"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/cvItemName"
+                            app:layout_constraintTop_toTopOf="@id/cvItemName" />
+                -->
+
+
+                        <LinearLayout
+                            android:id="@+id/llCheckBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="5"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/ll_ItemValue">
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/cbDismantle"
+                                style="@style/CheckboxStyle"
+                                android:layout_weight="1"
+                                android:text="@string/dismantle"
+                                android:clickable="@{viewModel.isEditable}"
+                                />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/cbFullExportWrap"
+                                style="@style/CheckboxStyle"
+                                android:layout_weight="1"
+                                android:text="@string/full_export_wrap"
+                                android:clickable="@{viewModel.isEditable}"/>
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/cbCard"
+                                style="@style/CheckboxStyle"
+                                android:layout_weight="0.6"
+                                android:text="@string/card"
+                                android:clickable="@{viewModel.isEditable}"/>
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/cbBubbleWrap"
+                                style="@style/CheckboxStyle"
+                                android:layout_weight="1.2"
+                                android:text="@string/bubble_wrap"
+                                android:clickable="@{viewModel.isEditable}"/>
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/cbRemains"
+                                style="@style/CheckboxStyle"
+                                android:layout_weight="1.2"
+                                android:text="@string/remains"
+                                android:clickable="@{viewModel.isEditable}"/>
+
+
+
+                        </LinearLayout>
+
+                        <!--  <androidx.recyclerview.widget.RecyclerView
+                              android:id="@+id/rvInventoryType"
+                              android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:clipToPadding="false"
+                              android:orientation="horizontal"
+                              android:paddingTop="@dimen/_6sdp"
+                              android:paddingBottom="@dimen/_6sdp"
+                              app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                              app:layout_constraintEnd_toStartOf="@id/imgCamera"
+                              app:layout_constraintHorizontal_weight="7"
+                              app:layout_constraintStart_toStartOf="parent"
+                              app:layout_constraintTop_toBottomOf="@id/cbDismantle"
+                              app:setLinearHorizontalAdapter="@{viewModel.inventoryTypeSelectionAdapter}"
+                              tools:listitem="@layout/item_inventory_type_selection" />
+                  -->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cvButtons"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            app:layout_constraintEnd_toStartOf="@id/imgCamera"
+                            app:layout_constraintHorizontal_weight="6"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/llCheckBox">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <RadioButton
+                                    android:id="@+id/btnCrate"
+                                    style="@style/CustomGreyButtonStyle"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/bg_rect_grey"
+                                    android:button="@null"
+                                    android:gravity="center"
+                                    android:text="@string/crate"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_6ssp"
+                                    android:clickable="false"
+                                    android:editable="false" />
+
+                                <RadioButton
+                                    android:id="@+id/btnMisc"
+                                    style="@style/CustomGreyButtonStyle"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/bg_rect_grey"
+                                    android:button="@null"
+                                    android:gravity="center"
+                                    android:text="@string/misc"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_6ssp"
+                                    android:clickable="@{viewModel.isEditable}"/>
+
+                                <RadioButton
+                                    android:id="@+id/btnDamage"
+                                    style="@style/CustomGreyButtonStyle"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/bg_rect_grey"
+                                    android:button="@null"
+                                    android:gravity="center"
+                                    android:text="@string/damage"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_6ssp"
+                                    android:clickable="@{viewModel.isEditable}"/>
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgCamera"
+                            style="@style/imageLogoStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="@dimen/_6sdp"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginBottom="0dp"
+                            android:background="@drawable/grey_dotted_border"
+                            app:layout_constraintBottom_toBottomOf="@id/cvButtons"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_weight="1"
+                            app:layout_constraintStart_toEndOf="@id/cvButtons"
+                            app:layout_constraintTop_toTopOf="@id/cvButtons"
+                            app:srcCompat="@drawable/ic_camera_grey"
+                            android:clickable="@{viewModel.isEditable}"/>
+
+                        <!--<androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnApproveAdmin"
+                            style="@style/RoundedYellowButtonStyle"
+                            android:layout_marginTop="0dp"
+                            android:text="@string/approve_admin"
+                            android:textSize="@dimen/_8ssp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@id/cvButtons"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_weight="3"
+                            app:layout_constraintStart_toEndOf="@id/imgCamera"
+                            app:layout_constraintTop_toTopOf="@id/cvButtons" />
+                -->
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tabLayout"
+                            style="@style/CustomTabLayoutStyle"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="0dp"
+                            android:elevation="@dimen/_2sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cvButtons"
+                            app:tabIndicatorColor="@color/colorAccentLight"
+                            app:tabMode="scrollable"
+                            app:tabSelectedTextColor="@color/colorAccentLight"
+                            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                            app:tabTextColor="@color/warm_grey" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llActionButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSave"
+                    style="@style/RoundedYellowButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_weight="1"
+                    android:text="@string/save"
+                    android:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCancel"
+                    style="@style/RoundedRedButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_weight="1"
+                    android:text="@string/cancel"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

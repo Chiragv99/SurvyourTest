@@ -1,0 +1,587 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Surveyor App</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_continue">Sign in to Continue</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_pwd">Forgot Password?</string>
+    <string name="or_sign_in_with">Or sign in with</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="signup_hyperlink">Don\'t have an account yet? <u><font color='#1169e2'>Sign Up</font></u></string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="or_signup">Or sign up with</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="forgot_your_password">Forgot Your Password?</string>
+    <string name="please_enter_your_registered_email">Please enter your registered email ID and we’ll send you a verification link to reset your password</string>
+    <string name="i_am_agree_with_the_terms_amp_conditions">I am agree with the <u><font color='#1169e2'>Terms &amp; Conditions.</font></u></string>
+    <string name="send">Send</string>
+    <string name="shop_by_categories">Shop by Categories</string>
+    <string name="add_to_bag">+ Add to Bag</string>
+    <string name="view_all_underline"><u>View All</u></string>
+    <string name="favourite">Favourite</string>
+    <string name="search">Search</string>
+    <string name="notification">Notification</string>
+    <string name="home">Home</string>
+    <string name="category">Category</string>
+    <string name="profile">Profile</string>
+    <string name="bag">Bag</string>
+    <string name="added_to_bag">Added to Bag</string>
+    <string name="add_to_wishlist">+ Add to Wishlist</string>
+    <string name="sold_by_s">Sold by: <font color='#333333'><b>WandWagon</b></font></string>
+    <string name="product_code_s">Product code: <font color='#333333'><b>4526543</b></font></string>
+    <string name="share">Share</string>
+    <string name="product_details">Product Details</string>
+    <string name="view_all_reviews">View all reviews</string>
+    <string name="my_order">My Order</string>
+    <string name="my_orders">My Orders</string>
+    <string name="faq">FAQ</string>
+    <string name="help">Help</string>
+    <string name="payment_options">Payment Options</string>
+    <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="about_us">About Us</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="view_supplier_information">View Supplier Information</string>
+    <string name="similar_products">Similar Products</string>
+    <string name="view_all_orders">View All Orders</string>
+    <string name="payment">Payment</string>
+    <string name="view_all_cards">View All Cards</string>
+    <string name="my_review">My Review</string>
+    <string name="view_your_review">View Your Review</string>
+    <string name="my_address">My Address</string>
+    <string name="_s_more">2 More</string>
+    <string name="coupons">Coupons</string>
+    <string name="view_coupons">View Coupons</string>
+    <string name="log_out">Log Out</string>
+    <string name="dummy_image">https://us.123rf.com/450wm/rido/rido1501/rido150100041/35534690-portrait-of-smiling-young-woman-wearing-sunglasses.jpg?ver=6</string>
+    <string name="dummy_image_sunglass">https://mobile.coolwinks.com/mobile-prod-images-lite/FFMM1_DSC_9113.jpg</string>
+    <string name="save_details">Save Details</string>
+    <string name="gender">Gender</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email_address">Email Address</string>
+    <string name="change_password">Change Password</string>
+    <string name="apply">Apply</string>
+    <string name="coupon_code">Coupon Code</string>
+    <string name="place_order">Place Order</string>
+    <string name="order_details">Order Details</string>
+    <string name="track_order">Track Order</string>
+    <string name="exchange">Exchange</string>
+    <string name="order_return">Return</string>
+    <string name="wrt_review">Write Review</string>
+    <string name="rate_this_product">Rate this Product</string>
+    <string name="excellent_product">Excellent Product</string>
+    <string name="loved_it">Loved it</string>
+    <string name="exp_delivery">Excellent Delivery</string>
+    <string name="write_review">Write a Review</string>
+    <string name="submit">Submit</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="plus_add_card">+ Add Card</string>
+    <string name="plus_add_address">+ Add Address</string>
+    <string name="my_cards">My Cards</string>
+    <string name="bank_accounts_and_cards">Bank Accounts and Cards</string>
+    <string name="we_keep_your_financial_information_encrypted">We keep your financial information encrypted.</string>
+    <string name="card_number">Card Number</string>
+    <string name="name_on_card">Name on Card</string>
+    <string name="set_as_primary_card">Set as Primary Card</string>
+    <string name="save_card">Save Card</string>
+    <string name="add_new_card">Add New Card</string>
+    <string name="expired">Expired</string>
+    <string name="ccv">CCV</string>
+    <string name="valid_nthru">Valid\nThru</string>
+    <string name="my_card">My Card</string>
+    <string name="account_type">Account Type</string>
+    <string name="status">Status</string>
+    <string name="mark_as_read">Mark as read</string>
+    <string name="wallet">Wallet</string>
+    <string name="cod">Cash On Delivery</string>
+    <string name="cc">Credit Card</string>
+    <string name="debit">Debit Card</string>
+    <string name="paypal">Paypal</string>
+    <string name="order_no">Order No:</string>
+    <string name="order_status">Order Status</string>
+    <string name="confirm_delivery">Confirm Delivery</string>
+    <string name="order">Order</string>
+    <string name="my_reviews">My Reviews</string>
+    <string name="select_payment_method">Select Payment Method</string>
+    <string name="press_again_to_exit">Press again to Exit</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="wish_list">Wishlist</string>
+    <string name="clear_all">Clear All</string>
+    <string name="name">Name</string>
+    <string name="address_line">Address(House No,Building,Street,Area)</string>
+    <string name="landmark">Landmark</string>
+    <string name="state">State</string>
+    <string name="country">Country</string>
+    <string name="address_type">Address type</string>
+    <string name="city">City</string>
+    <string name="pincode">Zip Code</string>
+    <string name="work">Work</string>
+    <string name="make_this_as_my_default_account">Make this as my default address</string>
+    <string name="save_address">Save address</string>
+    <string name="sort_by">Sort By</string>
+    <string name="filter">FILTER</string>
+    <string name="sort">SORT</string>
+    <string name="women">WOMEN</string>
+    <string name="close">Close</string>
+    <string name="clear">Clear</string>
+    <string name="thanks_for_your_time">Thanks for your Time</string>
+    <string name="ok">OK</string>
+    <string name="review_submitted">Review Submitted</string>
+    <string name="copy_coupon_code">Copy coupon code</string>
+    <string name="how_it_works">How it works</string>
+    <string name="coupon_detail">Coupon Detail</string>
+    <string name="edit_address">Edit Address</string>
+    <string name="edit_review">Edit Review</string>
+    <string name="reviews">Reviews</string>
+    <string name="size_">Size: %s</string>
+    <string name="size_chart">Size Chart</string>
+    <string name="itemdeletealert">Are you sure \nyou want to remove this item?</string>
+    <string name="legcopyalert">Would you like to copy Legs when creating cloned sequence?</string>
+
+<!--    No Internet Connection Message -->
+    <string name="nointernetconnection">Local network problem, please check your network</string>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="state">
+        <item>Select</item>
+        <item>State: 1</item>
+        <item>State: 2</item>
+        <item>State: 3</item>
+        <item>State: 4</item>
+        <item>State: 5</item>
+    </string-array>
+
+    <string-array name="reason">
+        <item>Select</item>
+        <item>Reason: 1</item>
+        <item>Reason: 2</item>
+        <item>Reason: 3</item>
+        <item>Reason: 4</item>
+        <item>Reason: 5</item>
+    </string-array>
+
+
+    <string name="cancel">Cancel</string>
+    <string name="enter_current_password">Enter current password</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="select_reason">Select reason</string>
+    <string name="return_reason">Return reason</string>
+    <string name="description">Description</string>
+    <string name="type_here">Type here…</string>
+    <string name="returns">Return</string>
+    <string name="okay">Okay</string>
+    <string name="msg_on_password_changed">Your password has been successfully changed.</string>
+    <string name="remember_password">"Remember me "</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="paul_hand">Paul Hand</string>
+    <string name="hcp_group">HCP, Group</string>
+    <string name="address_string">48 Earls Avenue, WHITEMANS GREEN, RH10 3YN</string>
+    <string name="date_and_time_string">10/06/2021 TODAY :10:00 AM</string>
+    <string name="pf21040051">PF21040051</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="forgot">Forgot</string>
+    <string name="change_your_password">Change your password</string>
+    <string name="send_email">SEND EMAIL</string>
+    <string name="back_to_login">Back to Login</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="survey_history">Survey History</string>
+    <string name="survey_details">Survey Details</string>
+    <string name="settings">Settings</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="it_is_a_long_established_fact_that_a_reader_will_be_distracted_by_the_readable_content_of_a_page_when_looking_at_its_layout">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</string>
+    <string name="_44_0_7753_355424">+ 44 (0) 7753 355424</string>
+    <string name="phone_Number">+ 44 (0) 8000 198556</string>
+    <string name="support_gmail_com">support@gmail.com</string>
+    <string name="contactus_gmail_com">enquiries@pickfords.com</string>
+    <string name="postal_information">Postal Information</string>
+    <string name="contact_address">Pickfords Genesis House, Kings Langley, WD4 8LZ</string>
+    <string name="po_box_22161_street_collins_east_n_po_box_16122_collins_street_west_n_victoria_8007_australia_n">PO Box 22161 Street Collins East\nPO Box 16122 Collins Street West\nVictoria 8007 Australia\n</string>
+    <string name="envato_head_quarters">Envato Head quarters</string>
+    <string name="frequently_asked_question">Frequency Asked Question</string>
+    <string name="push_notification">Push Notification</string>
+    <string name="preferred_language">Preferred Language</string>
+    <string name="english">English</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confrirm_password">Confirm Password</string>
+    <string name="save_password">SAVE PASSWORD</string>
+    <string name="version_1_0_1">Version 1.0.1</string>
+    <string name="enter_email_address">Enter email address</string>
+    <string name="enter_valid_email_address">Enter valid email address</string>
+    <string name="enter_a_password">Enter password</string>
+    <string name="below_eigth_characters">Password should be 3 characters</string>
+
+    <!--    Address Strings-->
+    <string name="enquiry">Enquiry</string>
+    <string name="move_date">Move Date</string>
+    <string name="firstname">First Name</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="surname">Last Name</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="company_name">Company Name</string>
+    <string name="booker">Booker</string>
+    <string name="phone_h">Phone (Home)</string>
+    <string name="phone">Phone</string>
+    <string name="phone_work">Phone (Work)</string>
+    <string name="mobile_b">Mobile No. 1</string>
+    <string name="phone_p">Mobile No. 2</string>
+    <string name="email_p">Email 1</string>
+    <string name="email_b">Email 2</string>
+    <string name="postcode">Postcode</string>
+    <string name="language">Language</string>
+    <string name="enquirytype">Enquiry Type</string>
+    <string name="children">Children</string>
+    <string name="save">Save</string>
+    <string name="move_manager">Move Manager</string>
+
+    <string-array name="string_array">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
+    </string-array>
+
+   <!-- <string-array name="sequencetype_array">
+        <item>Private</item>
+        <item>Corporate </item>
+    </string-array>
+
+-->
+
+    <string-array name="child_array">
+        <item>"0"</item>
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+        <item>"5"</item>
+    </string-array>
+
+    <string-array name="addresses_array">
+        <item>Select Address</item>
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
+    </string-array>
+
+    <string-array name="code_array">
+        <item>Select Code</item>
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
+    </string-array>
+
+    <string-array name="survey_type">
+        <item>Select Type</item>
+        <item>House</item>
+        <item>Flat/Apartment/Studio</item>
+        <item>Bungalow</item>
+    </string-array>
+
+    <string-array name="rental_property">
+        <item>Select Rental Property</item>
+        <item>Sale</item>
+        <item>Rent</item>
+        <item>N/A</item>
+    </string-array>
+    <string-array name="survey_size">
+        <item>Select Size</item>
+        <item>1 Bedroom</item>
+        <item>2 Bedroom</item>
+        <item>3 Bedroom</item>
+        <item>4 Bedroom</item>
+        <item>5 Bedroom+</item>
+    </string-array>
+
+    <!-- Time Array for planning page
+     Show selection dropdown of TBC, Full Day, AM,PM, Evening, Night
+    -->
+    <string-array name="timeDetails">
+        <item>TBC</item>
+        <item>Full Day</item>
+        <item>AM</item>
+        <item>PM</item>
+        <item>Evening</item>
+        <item>Night</item>
+    </string-array>
+
+    <string-array name="crate_type">
+        <item>Select Type</item>
+        <item>Open</item>
+        <item>Closed</item>
+    </string-array>
+
+    <string name="please_wait">Please wait</string>
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
+    <string name="title_name">Title Name</string>
+    <string name="address_2">Address 2</string>
+    <string name="property_type">Property type</string>
+    <string name="country_two">Country Two</string>
+    <string name="telephone_number">Telephone Number</string>
+    <string name="room">Room</string>
+    <string name="count">Count</string>
+    <string name="volume">Volume</string>
+    <string name="dismantle">Dismantle</string>
+    <string name="card">Card</string>
+    <string name="bubble_wrap">Bubble Wrap</string>
+    <string name="remains">Not to be Moved</string>
+    <string name="full_export_wrap">Export Wrap</string>
+    <string name="sequence">Sequence</string>
+    <string name="add">ADD</string>
+    <string name="remove">Remove</string>
+    <string name="edit_sequence">EDIT</string>
+    <string name="copy_sequence">COPY</string>
+    <string name="sequence_details">Sequence Details</string>
+    <string name="sequence_mode">Sequence Mode</string>
+    <string name="sequence_type">Sequence Type</string>
+    <string name="sequence_group">Sequence Group</string>
+    <string name="insurance_required">Insurance Required</string>
+    <string name="insurance_value">Insurance value</string>
+    <string name="lable_to_use">Lable to Use</string>
+    <string name="packing_method">Packing Method</string>
+    <string name="shipping_method">Shipping Method</string>
+    <string name="legs">Legs</string>
+    <string name="legs_name">Legs name</string>
+    <string name="legs_number">Leg No.</string>
+    <string name="origin">Origin</string>
+    <string name="destination">Destination</string>
+    <string name="address">Address</string>
+    <string name="activity">Activity</string>
+    <string name="code">Code</string>
+    <string name="type">Type</string>
+    <string name="floor">Floor</string>
+    <string name="access">Access</string>
+    <string name="stairs">Stairs</string>
+    <string name="distance">Distance</string>
+    <string name="longcarry">Long Carry</string>
+    <string name="shuttle">Shuttle</string>
+    <string name="permit">Permit</string>
+    <string name="parking_permit">Parking Permit</string>
+    <string name="permit_type">Permit Comments</string>
+    <string name="location">Location</string>
+    <string name="parking">Parking</string>
+    <string name="please_select_inventory_leg">please select sequence leg</string>
+    <string name="elevator">Lift</string>
+    <string name="allowance_packaging_delivery">Allowance / Packaging / Delivery</string>
+    <string name="allowance">Allowance</string>
+    <string name="dash">---------</string>
+    <string name="delivery_type">Delivery Type</string>
+    <string name="packing">Packing</string>
+    <string name="packing_date">Packing Date</string>
+    <string name="delivery">Delivery</string>
+    <string name="delivery_date">Delivery Date</string>
+    <string name="_10_jun_2021">10/jun/2021</string>
+    <string name="upload">Upload</string>
+    <string name="option">Option</string>
+    <string name="oneDash">-</string>
+    <string name="day">Day</string>
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+    <string name="appVersion">versionName: ${BuildConfig.VERSION_NAME} </string>
+    <string name="notes">Notes</string>
+    <string name="loading">Loading</string>
+    <string name="tbc">TBC</string>
+    <string name="driver">Driver</string>
+    <string name="porter">Porter</string>
+    <string name="no_of_drivers">No. of Drivers</string>
+    <string name="no_of_packers">No. of Packers</string>
+    <string name="add_note_here">Add notes here…</string>
+    <string name="_5">5</string>
+    <string name="approve_admin">Add to Master Inventory List</string>
+    <string name="crate">Crate</string>
+    <string name="damage">Damage</string>
+    <string name="misc">Misc</string>
+    <string name="select_survey">Select Survey</string>
+    <string name="Sselect_sequence">Select Sequence</string>
+    <string name="click_to_upload">Click to Upload</string>
+    <string name="item">Item</string>
+    <string name="_2">2</string>
+    <string name="total_volume">Total Volume</string>
+    <string name="comments">Comments</string>
+    <string name="dimenstion">Dimension</string>
+    <string name="package_title">Package</string>
+    <string name="pf_reason"> PF-Responsibilities</string>
+    <string name="customer_resp">Customer Responsibilities</string>
+    <string name="general">General</string>
+    <string name="ops">Crew Notes &amp; High Value Items</string>
+    <string name="ops_conf">Ops-Conf</string>
+    <string name="option_gallery">Gallery</string>
+    <string name="option_camera">Camera</string>
+    <string name="county">County</string>
+    <string name="please_select_adddress">Please Select Address</string>
+    <string name="are_you_sure_delete_address">Are you sure you want to delete this address?</string>
+    <string name="are_you_sure_submit_survey_details">Are you sure you want to submit survey detail?</string>
+    <string name="delete_survey_alert">Are you sure you want to delete?</string>
+    <string name="planning_is_empty">Planning is not Added</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="reference_number">Reference Number</string>
+    <string name="are_you_sure_delete_image">Are you sure you want to delete this picture?</string>
+    <string name="please_select_address_to_delete">Please select address to delete</string>
+    <string name="please_select_sequence">Please select sequence</string>
+    <string name="please_select_count">Please select count</string>
+    <string name="please_add_count">Please add count</string>
+    <string name="please_enter_item_name">Please Enter Item Name</string>
+    <string name="please_add_volume">Please add volume</string>
+    <string name="please_select_item">Please select Item</string>
+    <string name="please_select_room">Please select room</string>
+    <string name="please_select_floor">Please select floor</string>
+    <string name="please_select_add_room_label">Please Add Room Name</string>
+    <string name="please_enter_pf_reason">Please enter PF-Reason</string>
+    <string name="please_enter_customer_response">Please enter Customer Resp.</string>
+    <string name="please_enter_general">Please enter General</string>
+    <string name="please_enter_ops">Please enter Ops</string>
+    <string name="please_enter_ops_conf">Please enter Ops-Conf</string>
+    <string name="are_you_sure_delete_day">Are you sure you want to delete this day?</string>
+    <string name="are_you_sure_delete_option">Are you sure you want to delete this planning?</string>
+    <string name="allowance_type_add">Allowance Type</string>
+    <string name="add_leg">Add Leg</string>
+    <string name="save_sequence">Save Sequence</string>
+    <string name="select_sequence">Select Sequence</string>
+    <string name="done">Done</string>
+    <string name="no_data">No Data Found</string>
+    <string name="packingdate">Packing</string>
+    <string name="please_add_comments">Please add comments here</string>
+    <string name="please_add_room">Please add room name here</string>
+    <string name="add_misc_comments">Add Misc Comments</string>
+    <string name="add_damage_comments">Add Damage Comments</string>
+    <string name="update_room_title">Update Room Name</string>
+    <string name="add_room_title">Add Room Name</string>
+    <string name="add_crate_details">Add Crate Details</string>
+    <string name="enter_length">Enter the length</string>
+    <string name="penter_name">Please enter the name</string>
+    <string name="penter_volume">Please enter the volume</string>
+    <string name="enter_length_val">Please enter the length</string>
+    <string name="enter_width">Enter the width</string>
+    <string name="enter_width_val">Please enter the width</string>
+    <string name="enter_height">Enter the height</string>
+    <string name="enter_height_val">Please enter the height</string>
+    <string name="enter_comments_val">Please enter the comments</string>
+    <string name="enter_room_val">Please enter the room</string>
+    <string name="select_one_option">Please select one option</string>
+    <string name="select_one_item_option">Please select one item</string>
+    <string name="current_password_validation">Please fill current Password</string>
+    <string name="new_password_validation">Please fill new Password</string>
+    <string name="confirm_new_password_validation">Please fill confirm Password</string>
+    <string name="password_validation">New password and confirm password must be same</string>
+    <string name="please_select_sequence_type">Please Select Sequence Type</string>
+    <string name="please_select_sequence_mode">Please Select Sequence Mode</string>
+    <string name="please_select_sequence_group">Please Select Sequence Group</string>
+    <string name="please_enter_leg_name">Please Enter Leg Name</string>
+    <string name="enter_subitem_name">Please Enter Item Name</string>
+    <string name="enter_subitem_count">Please Enter Item Count</string>
+    <string name="enter_subitem_count_more_than_zero">Count must have greater than zero.</string>
+    <string name="please_select_insurance_required">Please Select Insurance Required</string>
+    <string name="please_add_insurance_amount">Please Add Insurance Amount</string>
+    <string name="please_add_label_to_use">Please Add Label To Use</string>
+    <string name="please_select_packing_method">Please Select Packing Method</string>
+    <string name="please_select_shipping_method">Please Select Shipping Method</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="origin_address">Origin Address</string>
+    <string name="are_you_sure_delete_sequence">Are you sure you want to delete this sequence?</string>
+    <string name="select_origin_address">Please Select Origin Address</string>
+    <string name="select_destination_address">Please Select Destination Address</string>
+    <string name="select_origin_address_type">Please Select Origin Address Type</string>
+    <string name="select_destination_address_type">Please Select Destination Address Type</string>
+    <string name="select_origin_access">Please Select Origin Access</string>
+    <string name="select_destination_access">Please Select Destination Access</string>
+    <string name="select_origin_permit">Please Select Origin Permit</string>
+    <string name="select_destination_permit">Please Select Destination Permit</string>
+    <string name="select_delivery_type">Please Select Delivery Type</string>
+    <string name="select_allowance_type">Please Select Allowance Type</string>
+    <string name="edit_legs">Edit Legs</string>
+    <string name="update">Update</string>
+    <string name="enter_name">Enter the name</string>
+    <string name="enter_volume">Enter the volume</string>
+    <string name="add_items">Add Item</string>
+    <string name="item_name">Item Name</string>
+    <string name="room_name">Room Name</string>
+    <string name="floor_name">Floor Name</string>
+    <string name="sync">Sync</string>
+    <string name="sync_up">Sync Upload</string>
+    <string name="submit_survey_details">Submit Survey Details</string>
+    <string name="survey_date">Survey Date</string>
+    <string name="sequence_name">Sequence Name</string>
+    <string name="distance_unit">Unit</string>
+    <string name="select_floor_room_and_sequence">Please select floor, room and sequence to select item</string>
+    <string name="partnership_referrals">Partnership Referrals</string>
+    <string name="pet_transportation">Pet Transportation</string>
+    <string name="forex">ForEx</string>
+    <string name="measurement_preference">Measurement Preference</string>
+    <string name="inches_feet">inches/feet</string>
+    <string name="inches">inches</string>
+    <string name="feet">feet</string>
+    <string name="centimeters_metres">centimeters/metres</string>
+    <string name="centimeters">centimeters</string>
+    <string name="metres">metres</string>
+    <string name="pickfords">Pickfords</string>
+    <string name="customer">Customer</string>
+    <string name="signature">Customer Signature</string>
+    <string name="additional_name_and_email_address">Additional name and email address</string>
+    <string name="consent_details">Consent Details</string>
+    <string name="fx_provider">FX Provider</string>
+    <string name="please_enter_signature">Please enter signature</string>
+    <string name="submitted">Submitted</string>
+    <string name="open">Open</string>
+    <string name="enquiryNoSmallest">Enquiry No (Smallest to Largest)</string>
+    <string name="enquiryNoLargest">Enquiry No (Largest to Smallest)</string>
+    <string name="moveManager">Move Manager</string>
+    <string name="firstName">First Name (A - Z)</string>
+    <string name="surveyDateOldest">Survey Date (Oldest - Newest)</string>
+    <string name="surveyDateNewest">Survey Date (Newest - Oldest)</string>
+    <string name="surveyTimeOldest">Survey Time (Oldest - Newest)</string>
+    <string name="surveyTimeNewest">Survey Time (Newest - Oldest)</string>
+
+
+    <string name="enquiryNo">Enquiry No</string>
+    <string name="enquiryNodesc">Enquiry No desc</string>
+    <string name="firstNameLabel">FirstName</string>
+    <string name="movemanagerLabel">Move Manager</string>
+    <string name="surveyDateOldestlabel">SurveyDate</string>
+    <string name="surveyDateNewestlabel">SurveyDate desc</string>
+    <string name="surveyTimeOldestlabel">SurveyTime</string>
+    <string name="surveyTimeNewestlabel">SurveyTime desc</string>
+    <string name="item_value">Item Value</string>
+    <string name="survey_type">Survey Type</string>
+    <string name="survey_size">Survey Size</string>
+    <string name="leg">Leg No.</string>
+    <string name="time">Time</string>
+    <string name="rental_property">Rental Property</string>
+    <string name="is_video">Is this a video survey?</string>
+    <string name="is_carton">Show Carton Only</string>
+    <string name="crate_type">Crate Type</string>
+    <string name="enter_description">Enter Description Here</string>
+
+
+    <string name="revisit_error">This is a revisited sequence. You will not be able to make any changes to this sequence.</string>
+
+    <string name="dialog_sync_data_error_title">Sync Data Error</string>
+    <string name="dialog_sync_data_error_message">No New Surveys to Sync  Please try again later!</string>
+    <string name="dialog_sync_data_title">No New Surveys to Sync</string>
+    <string name="maxCommentLength">80</string>
+    <string name="this_sub_item_exists">This Sub-Item exists</string>
+
+
+</resources>

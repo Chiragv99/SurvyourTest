@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/dashboardFragment"
+            android:icon="@drawable/ic_home"
+            android:title="@string/dashboard" />
+        <!--<item
+            android:id="@+id/surveyHistoryFragment"
+            android:icon="@drawable/ic_history"
+            android:title="@string/survey_history" />-->
+
+        <item
+            android:id="@+id/settingFragment"
+            android:icon="@drawable/change_password"
+            android:title="@string/change_password" />
+
+        <item
+            android:id="@+id/preferenceFragment"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/measurement_preference"
+            android:visible="false" />
+
+        <!--android:title="@string/settings"-->
+        <item
+            android:id="@+id/contactUsFragment"
+            android:icon="@drawable/ic_contactus"
+            android:title="@string/contact_us" />
+        <!--<item
+            android:id="@+id/termsAndConditionFragment"
+            android:icon="@drawable/ic_terms"
+            android:title="@string/terms_amp_conditions" />
+
+        <item
+            android:id="@+id/privacyPolicyFragment"
+            android:icon="@drawable/ic_privacy"
+            android:title="@string/privacy_policy" />-->
+        <item
+            android:id="@+id/actionSignOut"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/log_out" />
+
+    </group>
+    <group
+        android:id="@+id/nav_footer">
+
+        <item
+
+            android:id="@+id/nav_log_version"
+            app:actionLayout="@layout/menu_footer"
+            android:title="" />
+    </group>
+</menu>

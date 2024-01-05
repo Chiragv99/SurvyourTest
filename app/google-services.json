@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "368161997961",
+    "project_id": "surveyorpickford",
+    "storage_bucket": "surveyorpickford.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368161997961:android:f0f917137e2f0caf09f258",
+        "android_client_info": {
+          "package_name": "com.pickfords.surveyorapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368161997961-pfig8cg6j62ablgjadf1ucl5j6a138cl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pickfords.surveyorapp",
+            "certificate_hash": "54fbf6d09bfd8c229d5095ba2ce808e20846217b"
+          }
+        },
+        {
+          "client_id": "368161997961-jcn9f67lptd4seb904v02lc8ua73sr4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg_8MYTqv9VIzlFvXLK0k8MxSG7lYtyiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368161997961-jcn9f67lptd4seb904v02lc8ua73sr4o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

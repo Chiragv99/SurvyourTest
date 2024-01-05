@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="data"
+            type="com.pickfords.surveyorapp.model.dashboard.DashboardModel" />
+
+        <variable
+            name="holder"
+            type="com.pickfords.surveyorapp.view.dashboard.DashboardViewHolder" />
+
+        <variable
+            name="viewmodel"
+            type="com.pickfords.surveyorapp.viewModel.dashboard.DashboardViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/_6sdp"
+        android:paddingEnd="@dimen/_6sdp"
+        android:paddingBottom="0dp"
+        tools:context=".view.dashboard.FragmentDashboard">
+
+        <RelativeLayout
+            android:id="@+id/rlFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentStart="true"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_toLeftOf="@+id/llSubmit"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:setLinearHorizontalAdapter="@{viewmodel.filterDashboardAdapter}"
+                tools:itemCount="6"
+                tools:listitem="@layout/item_filter_dashboard" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/recFilter"
+                android:layout_marginHorizontal="@dimen/_2sdp"
+                android:layout_toStartOf="@id/imgFilter"
+                android:background="@drawable/tag_bg"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_3sdp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/submitted"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_6ssp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swcSubmit"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:checked="true"
+                    android:thumb="@drawable/custom_thumb"
+                    app:track="@drawable/custom_track" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/open"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_6ssp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgFilter"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_filter" />
+
+        </RelativeLayout>
+
+<!--        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--            android:id="@+id/pullToRefresh"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--           >-->
+
+<!--          -->
+<!--        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:layout_below="@id/rlFilter"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setDashboardGridAdapter="@{viewmodel.dashboardListAdapter}"
+            app:spanCount="2"
+            tools:listitem="@layout/item_dashboard" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtDataNotFound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/no_data"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </RelativeLayout>
+</layout>

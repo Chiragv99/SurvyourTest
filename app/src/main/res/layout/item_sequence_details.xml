@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="itemData"
+            type="com.pickfords.surveyorapp.model.surveyDetails.SequenceDetailsModel" />
+
+        <variable
+            name="holder"
+            type="com.pickfords.surveyorapp.view.surveyDetails.SequenceDetailsViewHolder" />
+
+        <variable
+            name="viewmodel"
+            type="com.pickfords.surveyorapp.viewModel.surveyDetails.SequenceDetailsViewModel" />
+
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/ll_Main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_2sdp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/txt_leg"
+                style="@style/medium_semi_bold_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.10"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8sdp"
+                android:visibility="visible">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_From"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.10"
+                android:text="From:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8sdp"
+
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_FromCity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:maxLines="3"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8sdp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_To"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.05"
+                android:text="To:"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_ToCity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="0.40"
+                android:maxLines="3"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8sdp">
+
+            </TextView>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <!-- <RelativeLayout
+             android:id="@+id/ll_Header"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+             <TextView
+                 android:id="@+id/txt_leg"
+                 style="@style/medium_semi_bold_text"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Leg 1"
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_8sdp">
+
+             </TextView>
+
+             <TextView
+                 android:id="@+id/txt_From"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="@dimen/_30sdp"
+                 android:layout_toRightOf="@+id/txt_leg"
+                 android:text="From : "
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_8sdp"
+                 android:textStyle="bold">
+
+             </TextView>
+
+             <TextView
+                 android:id="@+id/txt_FromCity"
+                 style="@style/medium_semi_bold_text"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="@dimen/_10sdp"
+                 android:layout_toRightOf="@+id/txt_From"
+                 android:singleLine="true"
+                 android:text=""
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_8sdp">
+
+             </TextView>
+
+             <TextView
+                 android:id="@+id/txt_To"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="@dimen/_30sdp"
+                 android:layout_toRightOf="@+id/txt_FromCity"
+                 android:text="To : "
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_8sdp"
+                 android:textStyle="bold">
+
+             </TextView>
+
+             <TextView
+                 android:id="@+id/txt_ToCity"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="@dimen/_10sdp"
+                 android:layout_toRightOf="@+id/txt_To"
+                 android:singleLine="true"
+                 android:text=""
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_8sdp">
+
+             </TextView>
+
+
+         </RelativeLayout>-->
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_2sdp"
+            app:cardCornerRadius="@dimen/_2sdp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ll_Item"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_2sdp">
+
+
+                <ImageView
+                    android:id="@+id/iv_SequenceImage"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:src="@android:drawable/ic_menu_view"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/black"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFloorTitle"
+                    style="@style/GreyTextViewStyle"
+                    android:text="@string/floor"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toStartOf="@id/tvRoomTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_SequenceImage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFloor"
+                    style="@style/BlackTextViewStyle"
+                    android:text="@{itemData.floor}"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintStart_toStartOf="@id/tvFloorTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvFloorTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvRoomTitle"
+                    style="@style/GreyTextViewStyle"
+                    android:text="@string/room"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toStartOf="@id/tvSequenceTitle"
+                    app:layout_constraintStart_toEndOf="@id/tvFloorTitle"
+                    app:layout_constraintTop_toTopOf="@id/tvFloorTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvRoom"
+                    style="@style/BlackTextViewStyle"
+                    android:text="@{itemData.room}"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintStart_toStartOf="@id/tvRoomTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvRoomTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSequenceTitle"
+                    style="@style/GreyTextViewStyle"
+                    android:text="@string/sequence"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@id/tvItemTitle"
+                    app:layout_constraintStart_toEndOf="@id/tvRoomTitle"
+                    app:layout_constraintTop_toTopOf="@id/tvFloorTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSequence"
+                    style="@style/BlackTextViewStyle"
+                    android:text="@{itemData.sequence}"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/tvSequenceTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvSequenceTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvSequenceTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvItemTitle"
+                    style="@style/GreyTextViewStyle"
+                    android:text="@string/item"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvSequenceTitle"
+                    app:layout_constraintTop_toTopOf="@id/tvFloorTitle" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvItem"
+                    style="@style/BlackTextViewStyle"
+                    android:textSize="@dimen/_8ssp"
+                    android:singleLine="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tvItemTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvItemTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTwoTitle"
+                    style="@style/GreyTextViewStyle"
+                    android:text="@string/count"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvVolumeTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvItem" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTwo"
+                    style="@style/BlackTextViewStyle"
+                    android:text="@{itemData.count}"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvVolumeTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvTwoTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvTwoTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvVolumeTitle"
+                    style="@style/GreyTextViewStyle"
+                    android:text="@string/volume"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toStartOf="@id/tvTotalVolumeTitle"
+                    app:layout_constraintStart_toEndOf="@id/tvTwoTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvItem" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvVolume"
+                    style="@style/BlackTextViewStyle"
+                    android:text="@{itemData.volume}"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvTotalVolumeTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvVolumeTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvVolumeTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTotalVolumeTitle"
+                    style="@style/GreyTextViewStyle"
+                    android:text="@string/total_volume"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvVolumeTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvItem" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTotalVolume"
+                    style="@style/BlackTextViewStyle"
+                    android:text="@{itemData.totalVolume}"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvTotalVolumeTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvTotalVolumeTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalVolumeTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvItemValueTitle"
+                    style="@style/GreyTextViewStyle"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:text="@string/item_value"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toStartOf="@+id/tvDamageTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvFloor"
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalVolume" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvItemValue"
+                    style="@style/BlackTextViewStyle"
+                    android:text="@{itemData.inventoryValue}"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="@id/tvItemValueTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvItemValueTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvItemValueTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDamageTitle"
+                    style="@style/GreyTextViewStyle"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:text="@string/damage"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toStartOf="@+id/tvDimenstionTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvVolume"
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalVolume" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDamage"
+                    style="@style/BlackTextViewStyle"
+                    android:text="@{itemData.damage??itemData.damageComment}"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="@id/tvDamageTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvDamageTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvDamageTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDimenstionTitle"
+                    style="@style/GreyTextViewStyle"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:text="@string/dimenstion"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="@+id/tvTotalVolumeTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvTotalVolume"
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalVolume"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDimenstion"
+                    style="@style/BlackTextViewStyle"
+                    android:text="@{itemData.dimenstion}"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/tvDimenstionTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvDimenstionTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvDimenstionTitle"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCommentsTitle"
+                    style="@style/GreyTextViewStyle"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:text="@string/misc"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toStartOf="@+id/tvDimenstionTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvItemValue"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvComments"
+                    style="@style/BlackTextViewStyle"
+                    android:text="@{itemData.comments??itemData.miscComment}"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="@id/tvCommentsTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvItemValueTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvCommentsTitle"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbDismantle"
+                    style="@style/CheckboxStyleWithoutMargin"
+                    android:checked="@{itemData.isDismantle}"
+                    android:text="@string/dismantle"
+                    app:layout_constraintEnd_toStartOf="@id/cbCard"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvComments" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbCard"
+                    style="@style/CheckboxStyleWithoutMargin"
+                    android:checked="@{itemData.isCard}"
+                    android:text="@string/card"
+                    app:layout_constraintEnd_toStartOf="@id/cbBubbleWrap"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintHorizontal_weight="0.5"
+                    app:layout_constraintStart_toEndOf="@id/cbDismantle"
+                    app:layout_constraintTop_toTopOf="@id/cbDismantle" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbBubbleWrap"
+                    style="@style/CheckboxStyleWithoutMargin"
+                    android:checked="@{itemData.isBubbleWrap}"
+                    android:text="@string/bubble_wrap"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/cbCard"
+                    app:layout_constraintTop_toTopOf="@id/cbDismantle" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbRemains"
+                    style="@style/CheckboxStyleWithoutMargin"
+                    android:checked="@{itemData.isRemain}"
+                    android:text="@string/remains"
+                    app:layout_constraintEnd_toStartOf="@id/cbFullExportWrap"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbDismantle" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbFullExportWrap"
+                    style="@style/CheckboxStyleWithoutMargin"
+                    android:checked="@{itemData.isFullExportWrap}"
+                    android:text="@string/full_export_wrap"
+                    app:layout_constraintEnd_toStartOf="@+id/cbCrate"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintHorizontal_weight="1.2"
+                    app:layout_constraintStart_toStartOf="@id/cbCard"
+                    app:layout_constraintTop_toTopOf="@id/cbRemains" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbCrate"
+                    style="@style/CheckboxStyleWithoutMargin"
+                    android:checked="@{itemData.isCrate}"
+                    android:text="@string/crate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/cbFullExportWrap"
+                    app:layout_constraintTop_toTopOf="@id/cbRemains" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/groupCb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="cbDismantle,cbCard,cbBubbleWrap,cbRemains,cbFullExportWrap,cbCrate"
+                    tools:visibility="visible" />
+
+
+
+                <!--<androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbPackage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:buttonTint="@color/color_dark_grey"
+                    android:checked="@{itemData.package}"
+                    android:clickable="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/package_title"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvComments" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbDismantle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:buttonTint="@color/color_dark_grey"
+                    android:checked="@{itemData.dismantle}"
+                    android:clickable="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:text="@string/dismantle"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toEndOf="@id/cbPackage"
+                    app:layout_constraintTop_toBottomOf="@id/tvComments" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

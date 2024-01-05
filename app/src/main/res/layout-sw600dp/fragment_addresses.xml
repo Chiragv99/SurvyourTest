@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainData"
+            type="com.pickfords.surveyorapp.model.dashboard.DashboardModel" />
+
+        <variable
+            name="data"
+            type="com.pickfords.surveyorapp.model.address.AddressListModel" />
+
+        <variable
+            name="viewModel"
+            type="com.pickfords.surveyorapp.viewModel.surveyDetails.AddressesViewModel" />
+
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.surveyDetails.FragmentEnquiry">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_above="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:padding="@dimen/_4sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvAddressesSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toStartOf="@id/btnAddAddress"
+                    app:layout_constraintHorizontal_weight="6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvAddressesSpinnerTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:text="@string/address"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spnAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_spinner"
+                        android:entries="@array/addresses_array"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:selection="@{viewModel.selectedPosition}"
+                        app:adapter="@{viewModel.addressSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvAddressesSpinnerTitle"
+                        app:setOnItemSelectedListener="@{viewModel.clicksListener}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAddAddress"
+                    style="@style/RoundedYellowButtonStyle"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:text="@string/add"
+                    android:textSize="@dimen/_8ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/cvAddressesSpinner"
+                    app:layout_constraintEnd_toStartOf="@id/btnRemoveAddress"
+                    app:layout_constraintHorizontal_weight="2"
+                    app:layout_constraintStart_toEndOf="@id/cvAddressesSpinner"
+                    app:layout_constraintTop_toTopOf="@id/cvAddressesSpinner" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRemoveAddress"
+                    style="@style/RoundedYellowButtonStyle"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/bg_gray_button_cornered"
+                    android:onClick="@{(view) -> viewModel.deleteAddressButtonClicked()}"
+                    android:text="@string/remove"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_8ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/btnAddAddress"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="2"
+                    app:layout_constraintStart_toEndOf="@id/btnAddAddress"
+                    app:layout_constraintTop_toTopOf="@id/btnAddAddress" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvAddressesTypeSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cvAddressesSpinner">
+
+                    <TextView
+                        android:id="@+id/tvAddressesTypeSpinnerTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:text="@string/address_type"
+                        style="@android:style/Widget.EditText"
+                        android:background="@null"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spnAddressType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_spinner"
+                        android:entries="@array/addresses_array"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:selection="@{viewModel.selectedPosition}"
+                        app:adapter="@{viewModel.addressTypeSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvAddressesTypeSpinnerTitle"
+                        app:setOnItemSelectedListener="@{viewModel.clicksListenerAddressType}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputTitleName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    android:visibility="gone"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cvAddressesTypeSpinner">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputTitleName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/title_name"
+                        android:inputType="textPersonName"
+                        android:maxLength="10"
+                        android:text="@={data.titleName}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--  <com.google.android.material.textfield.TextInputLayout
+                      android:id="@+id/inputCompanyName"
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/_4sdp"
+                      android:layout_marginEnd="@dimen/_2sdp"
+                      android:textAppearance="@style/TextInputLayoutAppearance"
+                      app:boxStrokeWidth="0dp"
+                      app:boxStrokeWidthFocused="0dp"
+                      app:hintTextColor="@color/warm_grey"
+                      android:visibility="gone"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@id/cvAddressesTypeSpinner">
+
+                      <com.google.android.material.textfield.TextInputEditText
+                          android:id="@+id/edtInputCompanyName"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:background="@drawable/bg_border_rounded"
+                          android:hint="@string/company_name"
+                          android:inputType="textPersonName"
+                          android:text="@={data.companyName}" />
+                  </com.google.android.material.textfield.TextInputLayout>-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputTitleName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/address"
+                        android:inputType="textPersonName"
+                        android:minLines="3"
+                        android:text="@={data.addressOne}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputAddressTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputAddress">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputAddressTwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/address_2"
+                        android:inputType="textPersonName"
+                        android:minLines="3"
+                        android:text="@={data.addressTwo}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputCity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/inputPostcode"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputAddressTwo">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/city"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:text="@={data.cityName}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputPostcode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputCity"
+                    app:layout_constraintTop_toBottomOf="@id/inputAddressTwo">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputPostcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/postcode"
+                        android:inputType="textPersonName"
+                        android:text="@={data.postcode}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputCounty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@+id/cvCountryTwoSpinner"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputCity">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCounty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/county"
+                        android:padding="@dimen/_9sdp"
+                        android:inputType="textPersonName"
+                        android:text="@={data.county}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvCountryTwoSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    style="@style/SpinnerCLTheme"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/inputCounty"
+                    app:layout_constraintTop_toBottomOf="@id/inputPostcode">
+
+                    <TextView
+                        android:id="@+id/tvCountryTwoSpinnerTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingStart="@dimen/_3sdp"
+                        android:text="@string/country"
+                        android:textSize="16sp"
+                        android:background="@null"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spnCountryTwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/SpinnerTheme"
+                        android:entries="@array/string_array"
+                        android:fontFamily="@font/roboto_regular"
+                        android:imeOptions="actionNext"
+                        app:adapter="@{viewModel.countrySpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCountryTwoSpinnerTitle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputTelephoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    android:visibility="gone"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputCounty">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputTelephoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:digits="0,1,2,3,4,5,6,7,8,9"
+                        android:hint="@string/telephone_number"
+                        android:inputType="phone"
+                        android:maxLength="12"
+                        android:text="@={data.telePhoneNo}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Property Type-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvPropertyTypeSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toStartOf="@id/inputAccess"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputTelephoneNumber">
+
+                    <TextView
+                        android:id="@+id/tvPropertyTypeSpinnerTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:text="@string/property_type"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spnPropertyType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_spinner"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        app:adapter="@{viewModel.getpropertyTypeSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPropertyTypeSpinnerTitle"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!--            <com.google.android.material.textfield.TextInputLayout-->
+                <!--                android:id="@+id/inputPropertyType"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginTop="@dimen/_4sdp"-->
+                <!--                android:textAppearance="@style/TextInputLayoutAppearance"-->
+                <!--                app:boxStrokeWidth="0dp"-->
+                <!--                app:boxStrokeWidthFocused="0dp"-->
+                <!--                app:hintTextColor="@color/warm_grey"-->
+                <!--                app:layout_constraintEnd_toStartOf="@id/inputAccess"-->
+                <!--                app:layout_constraintStart_toStartOf="parent"-->
+                <!--                app:layout_constraintTop_toBottomOf="@id/inputTelephoneNumber">-->
+
+                <!--                <com.google.android.material.textfield.TextInputEditText-->
+                <!--                    android:id="@+id/edtInputPropertyType"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:background="@drawable/bg_border_rounded"-->
+                <!--                    android:hint="@string/property_type"-->
+                <!--                    android:inputType="textPersonName"-->
+                <!--                    android:minLines="3"-->
+                <!--                    android:text="@={data.propertyType}" />-->
+                <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
+                <!--Floor-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputFloor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/inputAccess"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cvPropertyTypeSpinner">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputFloor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/floor"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:text="@={data.floor}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--            access-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputAccess"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputFloor"
+                    app:layout_constraintTop_toBottomOf="@id/cvPropertyTypeSpinner">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputAccess"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/access"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:text="@={data.access}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--            location-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/inputStairs"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputFloor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/parking"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:text="@={data.location}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--stairs-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputStairs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputLocation"
+                    app:layout_constraintTop_toBottomOf="@id/inputAccess">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputStairs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/stairs"
+                        android:inputType="textPersonName"
+                        android:text="@={data.stairs}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--            Permit  layout-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerPermitDestinationLayout"
+                    style="@style/SpinnerCLTheme"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    app:layout_constraintEnd_toStartOf="@id/inputElevator"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputStairs">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerPermitDestination"
+                        style="@style/SpinnerTopLabelStyle"
+                        android:text="@string/parking_permit"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spinnerDestinationPermit"
+                        style="@style/SpinnerTheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        android:spinnerMode="dropdown"
+
+                        app:adapter="@{viewModel.getSequenceLegPermitDestinationSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerPermitDestination" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--            <com.google.android.material.textfield.TextInputLayout-->
+                <!--                android:id="@+id/inputPermit"-->
+                <!--                android:layout_width="0dp"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginStart="@dimen/_2sdp"-->
+                <!--                android:layout_marginTop="@dimen/_4sdp"-->
+                <!--                android:theme="@style/TextInputLayoutAppearance"-->
+                <!--                app:boxStrokeWidth="0dp"-->
+                <!--                app:boxStrokeWidthFocused="0dp"-->
+                <!--                app:hintTextColor="@color/warm_grey"-->
+                <!--                app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                app:layout_constraintStart_toEndOf="@id/inputStairs"-->
+                <!--                app:layout_constraintTop_toBottomOf="@id/inputFloor">-->
+
+                <!--                <com.google.android.material.textfield.TextInputEditText-->
+                <!--                    android:id="@+id/edtInputPermit"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:background="@drawable/bg_border_rounded"-->
+                <!--                    android:hint="@string/permit"-->
+                <!--                    android:inputType="textPersonName"-->
+                <!--                    android:text="@={data.permit}" />-->
+                <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/inputElevator"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:button="@null"
+                    android:checked="@{data.lift}"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:padding="@dimen/_8sdp"
+                    android:text="@string/elevator"
+                    app:layout_constraintBottom_toBottomOf="@+id/clSpinnerPermitDestinationLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/clSpinnerPermitDestinationLayout"
+                    app:layout_constraintTop_toTopOf="@+id/clSpinnerPermitDestinationLayout" />
+
+
+                <!--            <com.google.android.material.textfield.TextInputLayout-->
+                <!--                android:id="@+id/inputDistance"-->
+                <!--                android:layout_width="0dp"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginTop="@dimen/_4sdp"-->
+                <!--                android:layout_marginEnd="@dimen/_2sdp"-->
+                <!--                android:theme="@style/TextInputLayoutAppearance"-->
+                <!--                app:boxStrokeWidth="0dp"-->
+                <!--                app:boxStrokeWidthFocused="0dp"-->
+                <!--                app:hintTextColor="@color/warm_grey"-->
+                <!--                app:layout_constraintEnd_toStartOf="@id/linCheckBox"-->
+                <!--                app:layout_constraintStart_toStartOf="parent"-->
+                <!--                app:layout_constraintTop_toBottomOf="@id/inputLocation">-->
+
+                <!--                <com.google.android.material.textfield.TextInputEditText-->
+                <!--                    android:id="@+id/edtInputDistance"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:background="@drawable/bg_border_rounded"-->
+                <!--                    android:hint="@string/distance"-->
+                <!--                    android:inputType="number"-->
+                <!--                    android:text="@={data.distance}" />-->
+                <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+                <!--            Distance layout-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSpinnerPermitDestinationTypeLayout"
+                    style="@style/SpinnerCLTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintTop_toBottomOf="@id/clSpinnerPermitDestinationLayout">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerPermitDestinationType"
+                        style="@style/SpinnerTopLabelStyle"
+                        android:text="@string/permit_type"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/spinnerDestinationPermitType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:fontFamily="@font/poppins_semibold"
+                        android:background="@null"
+                        android:imeOptions="actionNext"
+                        android:maxLength="50"
+                        android:text="@={data.parkingPermitTypeId}"
+                        android:paddingHorizontal="@dimen/_4sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerPermitDestinationType" />
+                    <!--    <androidx.appcompat.widget.AppCompatSpinner
+                                      android:id="@+id/spinnerDestinationPermitType1"
+                                      style="@style/SpinnerTheme"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:fontFamily="@font/poppins_semibold"
+                                      android:imeOptions="actionNext"
+                                      android:spinnerMode="dropdown"
+                                      app:adapter="@{viewModel.getPermitTypeSpinnerAdapter}"
+                                      app:layout_constraintEnd_toEndOf="parent"
+                                      app:layout_constraintStart_toStartOf="parent"
+                                      app:layout_constraintTop_toBottomOf="@id/tvSpinnerPermitDestinationType" />
+                  -->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                android:id="@+id/clAddOriginDistance"-->
+                <!--                android:layout_width="0dp"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginTop="@dimen/_4sdp"-->
+                <!--                android:layout_marginEnd="@dimen/_2sdp"-->
+                <!--                android:background="@drawable/bg_border_rounded"-->
+                <!--                android:padding="@dimen/_1sdp"-->
+                <!--                app:layout_constraintEnd_toStartOf="@id/linCheckBox"-->
+                <!--                app:layout_constraintStart_toStartOf="parent"-->
+                <!--                app:layout_constraintTop_toBottomOf="@id/clSpinnerPermitDestinationTypeLayout">-->
+
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:baselineAligned="false"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    android:weightSum="2"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent">-->
+
+                <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                <!--                        android:id="@+id/addStairOriginLayout"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:hint="@string/distance"-->
+                <!--                        android:textAppearance="@style/TextInputLayoutAppearance"-->
+                <!--                        app:boxBackgroundColor="@null"-->
+                <!--                        app:boxStrokeWidth="0dp"-->
+                <!--                        app:boxStrokeWidthFocused="0dp"-->
+                <!--                        app:hintTextColor="@color/sixty_white"-->
+                <!--                        app:layout_constraintTop_toTopOf="parent">-->
+
+                <!--                        <com.google.android.material.textfield.TextInputEditText-->
+                <!--                            android:id="@+id/edaddDistanceOrigin"-->
+                <!--                            style="@style/editTextStyle"-->
+                <!--                            android:text="@={data.distance}"-->
+                <!--                            android:textSize="@dimen/_8ssp" />-->
+
+                <!--                    </com.google.android.material.textfield.TextInputLayout>-->
+
+                <!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                        android:id="@+id/clSpinnerDistanceUnitOrigin"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:layout_weight="1">-->
+
+                <!--                        <TextView-->
+                <!--                            android:id="@+id/tvSpinnerDistanceUnitOrigin"-->
+                <!--                            style="@style/SpinnerTopLabelStyle"-->
+                <!--                            android:text="@string/distance_unit"-->
+                <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                <!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--                        &lt;!&ndash;todo change adapter value&ndash;&gt;-->
+                <!--                        <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner-->
+                <!--                            android:id="@+id/spinnerDistanceUnitOrigin"-->
+                <!--                            style="@style/SpinnerThemeAddSequence"-->
+                <!--                            app:adapter="@{viewModel.getSequenceLegDestinationDistanceTypeSpinnerAdapter()}"-->
+                <!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                <!--                            app:layout_constraintTop_toBottomOf="@id/tvSpinnerDistanceUnitOrigin" />-->
+                <!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+                <!--                </LinearLayout>-->
+
+                <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                <LinearLayout
+                    android:id="@+id/linCheckBox"
+                    style="@style/SpinnerCLTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clSpinnerPermitDestinationTypeLayout">
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/cbLongCarryDestination"
+                        style="@style/regular_black_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="@{data.isDestinationLongCarry}"
+                        android:text="@string/longcarry"
+                        android:textSize="@dimen/_7ssp" />
+
+                    <!--checkbox shuttle-->
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/cbShuttleDestination"
+                        style="@style/regular_black_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="@{data.isDestinationShittle}"
+                        android:text="@string/shuttle"
+                        android:textSize="@dimen/_7ssp" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            style="@style/RoundedYellowButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:visibility="visible"
+            tools:visibility="visible"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="@dimen/_10ssp"
+            android:text="@string/save" />
+    </RelativeLayout>
+</layout>

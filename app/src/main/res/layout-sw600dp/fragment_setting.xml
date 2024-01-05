@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.pickfords.surveyorapp.viewModel.auth.SettingViewModel" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.setting.SettingFragment">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAboutus"
+            style="@style/medium_semi_bold_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="@string/about_us"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAboutus2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:text="@string/it_is_a_long_established_fact_that_a_reader_will_be_distracted_by_the_readable_content_of_a_page_when_looking_at_its_layout"
+            android:textColor="@color/navy_blue"
+            android:textSize="@dimen/_8ssp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/tvAboutus" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@color/warm_grey"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/tvAboutus2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNotification"
+            style="@style/medium_semi_bold_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/notification"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/notificationSwitch"
+            style="@style/SwitchTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:padding="@dimen/_4sdp"
+            android:thumb="@drawable/thumb_selector"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNotification"
+            app:track="@drawable/track_selector" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNotificationSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text="@string/push_notification"
+            android:textColor="@color/navy_blue"
+            android:textSize="@dimen/_8ssp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNotification" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@color/warm_grey"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/tvNotificationSmall" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPreferredLanguage"
+            style="@style/medium_semi_bold_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/preferred_language"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPreferredLanguageSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text="@string/english"
+            android:textColor="@color/navy_blue"
+            android:textSize="@dimen/_8ssp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPreferredLanguage" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/preferredLangaugeSwitch"
+            style="@style/SwitchTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:padding="@dimen/_4sdp"
+            android:thumb="@drawable/thumb_selector"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPreferredLanguage"
+            app:track="@drawable/track_selector" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:visibility="gone"
+            android:background="@color/warm_grey"
+            app:layout_constraintTop_toBottomOf="@+id/tvPreferredLanguageSmall" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edCurrentPwd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/bg_border_rounded"
+            android:hint="@string/current_password"
+            android:inputType="textWebPassword"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintEnd_toStartOf="@+id/edNewPwd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edNewPwd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/bg_border_rounded"
+            android:hint="@string/new_password"
+            android:inputType="textWebPassword"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintEnd_toStartOf="@+id/edConfirmPwd"
+            app:layout_constraintStart_toEndOf="@+id/edCurrentPwd"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edConfirmPwd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/bg_border_rounded"
+            android:hint="@string/confrirm_password"
+            android:inputType="textWebPassword"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/edNewPwd"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btSavePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/bg_yello_button_cornered"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/save_password"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edCurrentPwd" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvVersionDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:text="@string/version_1_0_1"
+            android:textColor="@color/warm_grey"
+            android:textSize="@dimen/_8ssp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tvVersionDescription"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvVersionDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:text="@string/it_is_a_long_established_fact_that_a_reader_will_be_distracted_by_the_readable_content_of_a_page_when_looking_at_its_layout"
+            android:textColor="@color/warm_grey"
+            android:textSize="@dimen/_8ssp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.pickfords.surveyorapp.model.dashboard.DashboardModel" />
+
+        <variable
+            name="viewModel"
+            type="com.pickfords.surveyorapp.viewModel.surveyDetails.EnquiryViewModel" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.surveyDetails.FragmentEnquiry">
+
+        <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/btnSave">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_4sdp"
+                tools:context=".view.surveyDetails.FragmentEnquiry">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputSurveyDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/inputMoveDate"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputSurveyDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:hint="@string/survey_date"
+                        android:inputType="date"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputMoveManager"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:enabled="false"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:endIconMode="custom"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputSurveyDate"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputMoveManager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:hint="@string/move_manager"
+                        android:inputType="textPersonName"
+                        android:text="@={data.moveManager}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputEnquiry"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/inputMoveDate"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputSurveyDate">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputEnquiry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:hint="@string/enquiry"
+                        android:inputType="textPersonName"
+                        android:text="@={data.enquiryNo}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputMoveDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:endIconDrawable="@drawable/ic_calender_black"
+                    app:endIconMode="custom"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputEnquiry"
+                    app:layout_constraintTop_toBottomOf="@+id/inputSurveyDate">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputMoveDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:focusable="false"
+                        android:hint="@string/move_date"
+                        android:inputType="date"
+                        app:convertDateTimeSet="@{data.moveDate}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <!--                android:onTextChanged="@{(text, start, before, count) -> viewModel.onUsernameTextChanged(text)}"
+                -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputFirstName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/inputMiddleName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputEnquiry">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/firstname"
+                        android:inputType="textPersonName"
+                        android:text="@={data.firstName}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputMiddleName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputFirstName"
+                    app:layout_constraintTop_toBottomOf="@id/inputEnquiry">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputMiddleName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/middle_name"
+                        android:inputType="textPersonName"
+                        android:text="@={data.middleName}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputSurname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/cvGender"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputFirstName">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputSurname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/surname"
+                        android:inputType="textPersonName"
+                        android:text="@={data.surname}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvGender"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/inputSurname"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputSurname"
+                    app:layout_constraintTop_toTopOf="@id/inputSurname">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvRadioTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:gravity="top"
+                        android:text="@string/gender"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RadioGroup
+                        android:id="@+id/radioGender"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvRadioTitle">
+
+                        <RadioButton
+                            android:id="@+id/rbMale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:buttonTint="@color/black"
+                            android:checked="@{data.gender.equalsIgnoreCase(@string/male)}"
+                            android:onCheckedChanged="@{(group, checkedId) -> data.setGender(@string/male)}"
+                            android:text="@string/male"
+                            android:textColor="@color/warm_grey" />
+
+                        <RadioButton
+                            android:id="@+id/rbFemale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:buttonTint="@color/black"
+                            android:checked="@{data.gender.equalsIgnoreCase(@string/female)}"
+                            android:onCheckedChanged="@{(group, checkedId) -> data.setGender(@string/female)}"
+                            android:text="@string/female"
+                            android:textColor="@color/warm_grey" />
+
+                    </RadioGroup>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvLanguageSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/cvSequenceTypeSpinner"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputSurname">
+
+                    <TextView
+                        android:id="@+id/tvLanguageSpinnerTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/language"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spnLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_spinner"
+                        android:entries="@array/string_array"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        app:adapter="@{viewModel.languageSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvLanguageSpinnerTitle"
+                        app:setOnItemSelectedListener="@{viewModel.clicksListener}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvSequenceTypeSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cvLanguageSpinner"
+                    app:layout_constraintTop_toBottomOf="@id/inputSurname">
+
+                    <TextView
+                        android:id="@+id/tvEnquiryTypeSpinnerTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/enquirytype"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spnEnquiryType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_spinner"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:imeOptions="actionNext"
+                        app:adapter="@{viewModel.enquiryTypeSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvEnquiryTypeSpinnerTitle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvChildrenSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cvLanguageSpinner"
+                    app:layout_constraintTop_toBottomOf="@id/inputSurname">
+
+                    <TextView
+                        android:id="@+id/tvChildrenSpinnerTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:text="@string/children"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spnChildren"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_spinner"
+                        android:entries="@array/child_array"
+                        android:fontFamily="@font/roboto_regular"
+                        android:imeOptions="actionNext"
+                        android:selectedItemPosition="@={data.children}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvChildrenSpinnerTitle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputCompanyName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/inputBooker"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cvLanguageSpinner">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputCompanyName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/company_name"
+                        android:inputType="text"
+                        android:text="@={data.companyName}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputBooker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputCompanyName"
+                    app:layout_constraintTop_toBottomOf="@id/cvLanguageSpinner">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputBooker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/booker"
+                        android:text="@={data.brokerName}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/inputPhoneHome"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputCompanyName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/phone_work"
+                        android:inputType="phone"
+                        android:maxLength="20"
+                        android:text="@={data.phoneNo}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputPhoneHome"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputPhone"
+                    app:layout_constraintTop_toBottomOf="@id/inputCompanyName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputPhoneHome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/phone_h"
+                        android:inputType="phone"
+                        android:maxLength="20"
+                        android:text="@={data.phoneNoH}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputMobile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/inputPhoneP"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputPhone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputMobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/mobile_b"
+                        android:inputType="phone"
+                        android:maxLength="20"
+                        android:text="@={data.mobileNoB}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputPhoneP"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputMobile"
+                    app:layout_constraintTop_toBottomOf="@id/inputPhone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputPhoneP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/phone_p"
+                        android:inputType="phone"
+                        android:maxLength="20"
+                        android:text="@={data.phoneNoP}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputEmailPersonal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/inputEmailBroadcast"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputMobile">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputEmailPersonal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/email_p"
+                        android:inputType="textEmailAddress"
+                        android:text="@={data.emailAddressP}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputEmailBroadcast"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputEmailPersonal"
+                    app:layout_constraintTop_toBottomOf="@id/inputMobile">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputEmailBroadcast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/email_b"
+                        android:inputType="textEmailAddress"
+                        android:text="@={data.emailAddressB}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    android:visibility="gone"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputEmailPersonal">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:gravity="top|left"
+                        android:hint="@string/address"
+                        android:inputType="textMultiLine"
+                        android:maxLines="6"
+                        android:minLines="3"
+                        android:scrollbars="vertical"
+                        android:text="@={data.address}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputPostcode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    android:visibility="gone"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toStartOf="@id/inputCity"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputAddress">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputPostcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/postcode"
+                        android:inputType="textPostalAddress"
+                        android:maxLength="10"
+                        android:text="@={data.postalCode}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputCity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    android:visibility="gone"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/inputPostcode"
+                    app:layout_constraintTop_toBottomOf="@id/inputAddress">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:hint="@string/city"
+                        android:inputType="text"
+                        android:text="@={data.city}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvTypeSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toStartOf="@id/cvRentalSpinner"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cvSpinner">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerTitle"
+                        style="@android:style/Widget.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:background="@null"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/survey_type"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spnType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:background="@drawable/bg_spinner"
+                        android:entries="@array/survey_type"
+                        android:fontFamily="@font/roboto_regular"
+                        android:imeOptions="actionNext"
+                        app:adapter="@{viewModel.getSurveyTypeSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerTitle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvRentalSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cvTypeSpinner"
+                    app:layout_constraintTop_toBottomOf="@id/cvSpinner">
+
+                    <TextView
+                        android:id="@+id/tvRentalSpinnerTitle"
+                        style="@android:style/Widget.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:background="@null"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/rental_property"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spnRental"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:background="@drawable/bg_spinner"
+                        android:entries="@array/rental_property"
+                        android:fontFamily="@font/roboto_regular"
+                        android:imeOptions="actionNext"
+                        app:adapter="@{viewModel.rentalTypeSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvRentalSpinnerTitle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    app:layout_constraintTop_toBottomOf="@id/inputPostcode">
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        style="@android:style/Widget.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:background="@null"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:text="@string/survey_size"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spnSize"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:background="@drawable/bg_spinner"
+                        android:entries="@array/survey_size"
+                        android:fontFamily="@font/roboto_regular"
+                        android:imeOptions="actionNext"
+                        app:adapter="@{viewModel.surveySizeTypeSpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvEnquiryTypeSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvEnquiryTypeSpinnerTitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/enquirytype"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spnEnquiryType1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_spinner"
+                        android:fontFamily="@font/roboto_regular"
+                        android:imeOptions="actionNext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvEnquiryTypeSpinnerTitle1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvCountrySpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:background="@drawable/bg_border_rounded"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@id/cvSpinner"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputPostcode">
+
+                    <TextView
+                        android:id="@+id/tvCountryTitle"
+                        style="@android:style/Widget.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:background="@null"
+                        android:fontFamily="@font/roboto_regular"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:text="@string/country"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                        android:id="@+id/spnCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:background="@drawable/bg_spinner"
+                        android:entries="@array/string_array"
+                        android:fontFamily="@font/roboto_regular"
+                        android:imeOptions="actionNext"
+                        app:adapter="@{viewModel.countrySpinnerAdapter}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCountryTitle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textAppearance="@style/TextInputLayoutAppearance"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/warm_grey"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cvTypeSpinner">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInputComment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_rounded"
+                        android:gravity="top|left"
+                        android:hint="@string/comments"
+                        android:inputType="textMultiLine"
+                        android:maxLines="6"
+                        android:minLines="3"
+                        android:scrollbars="vertical"
+                        android:focusableInTouchMode="false"
+                        android:text="@={data.surveyComment}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPartnershipReferrals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:gravity="top"
+                    android:text="@string/partnership_referrals"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputComment" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbPetTransportation"
+                    style="@style/CheckboxStyle"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginTop="0dp"
+                    android:checked="@={data.PetTrans}"
+                    android:text="@string/pet_transportation"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@id/cbForEx"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPartnershipReferrals" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbForEx"
+                    style="@style/CheckboxStyle"
+                    android:layout_marginTop="0dp"
+                    android:checked="@={data.ForEx}"
+                    android:text="@string/forex"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cbPetTransportation"
+                    app:layout_constraintTop_toBottomOf="@id/tvPartnershipReferrals" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            style="@style/RoundedYellowButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="@dimen/_10ssp"
+            android:text="@string/save"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+    </RelativeLayout>
+</layout>

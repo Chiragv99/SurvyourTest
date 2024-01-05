@@ -1,0 +1,446 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textSize">9.3sp</item>
+    </style>
+
+    <style name="NavigationDrawerStyle" parent="Widget.Design.NavigationView">
+        <item name="navigationIcon">@drawable/ic_nav_menup</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="medium_semi_bold_text">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/navy_blue</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+
+    <style name="regular_text">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="edt_label_grey">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/warm_grey</item>
+        <item name="android:textSize">@dimen/tiny_text</item>
+    </style>
+
+    <style name="regular_black_txt">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+    </style>
+
+    <style name="AlertDialogTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Alert.Button.Positive</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Alert.Button.Positive</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Alert.Button.Positive</item>
+    </style>
+
+    <style name="Alert.Button.Positive" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="backgroundTint">@color/colorTransparentBlack</item>
+        <item name="rippleColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="black_btn">
+        <item name="android:padding">@dimen/_4sdp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/btn_text</item>
+        <item name="android:background">@drawable/selector_btn_black</item>
+    </style>
+
+    <style name="ProgressDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="btn_add_to_bag" parent="Widget.AppCompat.TextView">
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/selector_text_black_white</item>
+        <item name="android:textSize">10.5sp</item>
+        <item name="android:text">@string/add_to_bag</item>
+        <item name="android:background">@drawable/selector_btn_add_to_bag</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+    </style>
+
+    <style name="TextInputLayoutAppearance" parent="Widget.Design.TextInputLayout">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColorHint">@color/warm_grey</item>
+        <item name="colorControlNormal">@color/separator</item>
+        <item name="colorControlActivated">@color/warm_grey</item>
+        <item name="colorControlHighlight">@color/black</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="order_tag_style">
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:background">@drawable/tag_bg</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:textColor">@color/black2</item>
+        <item name="android:textSize">11.5sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+
+    <style name="order_name">
+        <item name="android:text">"Ray-Ban"</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">13.3sp</item>
+    </style>
+
+    <style name="order_price">
+        <item name="android:text">"$80 $100"</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/brownish_grey</item>
+        <item name="android:textSize">9.5sp</item>
+    </style>
+
+    <style name="order_save_price">
+        <item name="android:text">"Saved $20"</item>
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:textColor">@color/seaweed</item>
+        <item name="android:textSize">11.5sp</item>
+    </style>
+
+    <style name="order_size_color">
+        <item name="android:text">"Size: L | Color: Black"</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/brownish_grey</item>
+        <item name="android:textSize">10.5sp</item>
+    </style>
+
+    <style name="order_status">
+        <item name="android:text">"Delivered (Dec 20, 2019)"</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/black2</item>
+        <item name="android:textSize">11.5sp</item>
+    </style>
+
+    <style name="yellowRatingBar" parent="@android:style/Widget.Holo.Light.RatingBar.Small">
+        <item name="android:progressDrawable">@drawable/v_ic_ratingbar</item>
+    </style>
+
+
+    <style name="gray_corner_btn">
+        <item name="android:padding">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/warm_grey_two</item>
+        <item name="android:textSize">@dimen/btn_text</item>
+        <item name="android:background">@drawable/selector_btn_black</item>
+    </style>
+
+    <style name="SpinnerTheme" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/bg_spinner</item>
+    </style>
+
+    <style name="SpinnerItem">
+        <item name="android:textColor">@color/brownish_grey</item>
+    </style>
+
+    <style name="SpinnerDropDownItem">
+        <item name="android:dropDownSpinnerStyle">@layout/support_simple_spinner_dropdown_item
+        </item>
+        <item name="android:textColor">@color/brownish_grey</item>
+    </style>
+
+    <style name="ThemeDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.7</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/anim_slide_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/anim_slide_out_to_bottom</item>
+    </style>
+
+
+    <style name="MaterialCheckBoxStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableStart">@drawable/check_box_state_bg</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="MaterialButtonStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:padding">@dimen/_2sdp</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:background">@drawable/btn_login_accent</item>
+        <item name="android:textAppearance">@style/ButtonTextAppearance</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ButtonTextAppearance" parent="TextAppearance.AppCompat.Widget.Button">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="dashboardTitleTextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/_6sdp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:gravity">center_horizontal|top</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_7ssp</item>
+    </style>
+
+    <style name="imageLogoStyle">
+        <item name="android:layout_width">@dimen/_10sdp</item>
+        <item name="android:layout_height">@dimen/_10sdp</item>
+        <item name="android:layout_marginTop">@dimen/_4sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_6sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_4sdp</item>
+    </style>
+
+    <style name="dashboardItemTextViewStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">@dimen/_8sdp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/_7ssp</item>
+    </style>
+
+    <style name="RoundedYellowButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_yello_button_cornered</item>
+        <item name="android:padding">@dimen/_4sdp</item>
+        <item name="android:layout_marginTop">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/_6ssp</item>
+    </style>
+
+    <style name="RoundedRedButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_red_button_cornered</item>
+        <item name="android:padding">@dimen/_4sdp</item>
+        <item name="android:layout_marginTop">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/_6ssp</item>
+    </style>
+
+    <style name="MyCustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/_8ssp</item>
+    </style>
+
+    <style name="ProgressBarColor">
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CheckboxStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/_4sdp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="CheckboxStyleWithoutMargin">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="CustomTabLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_10sdp</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+    <style name="CustomGreyButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:padding">@dimen/_8sdp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:layout_marginEnd">@dimen/_2sdp</item>
+        <item name="android:background">@drawable/bg_light_grey_border_rounded</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/_6ssp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="GreyTextViewStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/_5ssp</item>
+        <item name="android:textColor">@color/color_blue_grey</item>
+    </style>
+
+    <style name="BlackTextViewStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textSize">@dimen/_6ssp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_marginTop">@dimen/_2sdp</item>
+    </style>
+
+    <style name="CommentsHeadingTitleTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/colorPrimaryLight</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:gravity">start</item>
+        <item name="android:padding">@dimen/_4sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_7ssp</item>
+    </style>
+
+    <style name="CommentsEditTextStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:gravity">start</item>
+        <item name="android:minLines">3</item>
+        <item name="android:padding">@dimen/_4sdp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_6ssp</item>
+        <item name="android:inputType">textMultiLine</item>
+    </style>
+
+    <style name="clMainLayoutStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/_4sdp</item>
+        <item name="android:background">@drawable/bg_border_rounded</item>
+        <item name="android:padding">@dimen/_3sdp</item>
+    </style>
+
+    <style name="inputTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/_1sdp</item>
+        <item name="boxBackgroundColor">@null</item>
+        <item name="hintTextColor">@color/black2</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="android:theme">@style/TextInputLayoutAppearance</item>
+    </style>
+
+    <style name="dimensionDialogEditTexts">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:maxLength">5</item>
+        <item name="android:layout_height">@dimen/_28sdp</item>
+        <item name="android:background">@drawable/bg_light_grey_border_rounded</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:padding">@dimen/_4sdp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="additemDialogEditTexts">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:maxLength">5</item>
+        <item name="android:layout_height">@dimen/_28sdp</item>
+        <item name="android:background">@drawable/bg_light_grey_border_rounded</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:inputType">text</item>
+        <item name="android:padding">@dimen/_4sdp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+
+    <style name="editTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:inputType">text</item>
+        <item name="android:textColorHint">@color/light_Gray</item>
+        <item name="android:textSize">@dimen/_6ssp</item>
+    </style>
+
+    <style name="SpinnerThemeAddSequence" parent="SpinnerTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:textSize">@dimen/_5ssp</item>
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
+    <style name="SpinnerCLTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/_16sdp</item>
+        <item name="android:layout_marginTop">@dimen/_4sdp</item>
+        <item name="android:background">@drawable/bg_border_rounded</item>
+        <item name="android:padding">@dimen/_2sdp</item>
+    </style>
+
+    <style name="SpinnerTopLabelStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/_4sdp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+</resources>

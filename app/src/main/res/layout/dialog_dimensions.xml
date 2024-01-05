@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:id="@+id/tvMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="@string/add_crate_details"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_11ssp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/cbCrate"
+                        style="@style/CheckboxStyle"
+                        android:layout_width="0dp"
+                        android:text="@string/crate"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/inches"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/inches"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:gravity="end"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/_11ssp" />
+
+
+                </LinearLayout>
+
+
+
+
+                <!--<androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spnMeasurement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_spinner"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:imeOptions="actionNext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbCrate" />-->
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cvTypeSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toStartOf="@id/cvRentalSpinner"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cvSpinner">
+
+                    <TextView
+                        android:id="@+id/tvSpinnerTitle"
+                        style="@android:style/Widget.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:background="@null"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/crate_type"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:background="@drawable/bg_border_rounded"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpinnerTitle">
+
+                        <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                            android:id="@+id/spnType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_1sdp"
+                            android:background="@drawable/bg_spinner"
+                            android:entries="@array/crate_type"
+                            android:fontFamily="@font/roboto_regular"
+                            android:imeOptions="actionNext"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                           />
+
+                    </LinearLayout>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etHeight"
+                    style="@style/dimensionDialogEditTexts"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="@string/enter_height" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etLength"
+                    style="@style/dimensionDialogEditTexts"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:hint="@string/enter_length" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etWidth"
+                    style="@style/dimensionDialogEditTexts"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="@string/enter_width" />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCancel"
+                        style="@style/black_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_weight="1"
+                        android:text="@string/cancel"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/_8ssp"
+                        app:backgroundTint="@color/colorPrimary"
+                        app:cornerRadius="@dimen/_100sdp" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnOk"
+                        style="@style/black_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_weight="1"
+                        android:text="@string/done"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/_8ssp"
+                        app:backgroundTint="@color/colorPrimary"
+                        app:cornerRadius="@dimen/_100sdp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="position"
+            type="Integer" />
+
+
+        <variable
+            name="itemData"
+            type="com.pickfords.surveyorapp.model.surveyDetails.SequenceDetailsModel" />
+
+
+        <variable
+            name="holder"
+            type="com.pickfords.surveyorapp.view.surveyDetails.InventoryAddInventorySubItemViewHolder" />
+
+    </data>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_Main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:weightSum="1">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.8"
+                android:background="@null"
+                android:fontFamily="@font/poppins"
+                android:gravity="start|center"
+                android:hint="@string/enter_description"
+                android:inputType="textCapSentences"
+                android:maxLines="8"
+                android:minLines="4"
+                android:padding="@dimen/_4sdp"
+                android:scrollbars="vertical"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_6sdp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:fontFamily="@font/poppins"
+                android:gravity="start|center"
+                android:layout_weight="0.2"
+                android:hint="Count"
+                android:inputType="number"
+                android:maxLines="8"
+                android:minLines="4"
+                android:padding="@dimen/_4sdp"
+                android:scrollbars="vertical"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_6sdp" />
+
+
+            <ImageView
+                android:id="@+id/ivEdit"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:enabled="false"
+                android:layout_margin="@dimen/_10sdp"
+                android:src="@drawable/ic_edit"
+                android:background="@drawable/ic_circle_yellow"/>
+
+            <ImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_gravity="center|end"
+                android:padding="12dp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/ic_delete"
+                android:background="@drawable/ic_circle_yellow"/>
+
+            <ImageView
+                android:id="@+id/ivClose"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_gravity="center|end"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/ic_v_ic_close_circle_outline"
+                app:tint="@color/colorAccent" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

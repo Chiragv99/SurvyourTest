@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.pickfords.surveyorapp.viewModel.surveyDetails.SequenceDetailsViewModel" />
+
+        <variable
+            name="holder"
+            type="com.pickfords.surveyorapp.view.surveyDetails.SequenceDetailsViewHolder" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:background="#E8E9F0"
+        android:orientation="vertical"
+        tools:context=".view.surveyDetails.FragmentEnquiry">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llTab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryLight"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtPickfords"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_google"
+                android:backgroundTint="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/pickfords"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="@dimen/_8ssp"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtCustomer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/customer"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8ssp"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/pickfords"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8ssp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cvSelectSurveySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llTab"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:background="@drawable/bg_rounded"
+            android:elevation="@dimen/_8sdp"
+            android:padding="@dimen/_4sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="0.80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvSelectSurveySpinnerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingEnd="0dp"
+                android:text="@string/select_sequence"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.pickfords.surveyorapp.widgets.searchablespinner.SearchableSpinner
+                android:id="@+id/spnSelectSurvey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_spinner"
+                android:entries="@array/string_array"
+                android:fontFamily="@font/poppins_semibold"
+                android:spinnerMode="dropdown"
+                android:textSize="@dimen/_8ssp"
+                app:adapter="@{viewModel.getSequenceSpinnerAdapter}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSelectSurveySpinnerTitle"
+                app:setOnItemSelectedListener="@{viewModel.clicksListener}"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbCarton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            tools:visibility="visible"
+            android:text="@string/is_carton"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_below="@+id/cvSelectSurveySpinner"
+            android:textSize="10sp" />
+
+        <RelativeLayout
+            android:id="@+id/ll_SequenceHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cbCarton"
+            android:layout_margin="@dimen/_4sdp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txt_SequenceFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="From: "
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_SequenceFromCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/txt_SequenceFrom"
+                android:maxLines="3"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8sdp"
+                tools:text="ABccccC, UK">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_SequenceTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_toRightOf="@+id/txt_SequenceFromCity"
+                android:text="To: "
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8sdp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_ToCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginEnd="8dp"
+                android:layout_toRightOf="@+id/txt_SequenceTo"
+                android:maxLines="3"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8sdp"
+                tools:text="ABC, UK">
+
+            </TextView>
+
+
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/btnSave"
+            android:layout_below="@id/ll_SequenceHeader"
+            android:layout_marginBottom="@dimen/_7sdp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSequenceDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/_6sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:setLinearVerticalAdapter="@{viewModel.sequenceDetailsAdapter}"
+                    tools:listitem="@layout/item_sequence_details" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbVideo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:paddingVertical="@dimen/_6sdp"
+                    android:text="@string/is_video"
+                    android:textSize="@dimen/_8ssp" />
+
+                <RelativeLayout
+                    android:id="@+id/rlSignature"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginVertical="@dimen/_6sdp"
+
+                    android:padding="@dimen/_5sdp"
+                    tools:visibility="visible"
+                    android:visibility="gone">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvSignature"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/imgClear"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="start"
+                        android:text="@string/signature"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgClear"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_v_ic_close_circle_outline"
+                        android:visibility="visible" />
+
+
+
+                    <com.williamww.silkysignature.views.SignaturePad
+                        android:id="@+id/signature_pad"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/dotted_rectangle"
+                        android:layout_below="@id/tvSignature" />
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/tvNoData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="@string/no_data"
+            android:textSize="@dimen/_14ssp"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            style="@style/RoundedYellowButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone"
+            android:layout_margin="10dp"
+            tools:visibility="visible"
+            android:layout_marginTop="0dp"
+            android:text="@string/save" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16sdp"
+        app:contentPadding="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardUseCompatPadding="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/headerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txt_Header"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:text="Group List"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:id="@+id/iv_Close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:src="@drawable/ic_close"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <LinearLayout
+                android:id="@+id/ll_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/headerView"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/addSubitemlistRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:visibility="gone"
+                    tools:itemCount="2"
+                    android:scrollbars="vertical"
+                    android:fadeScrollbars="false"
+                    tools:listitem="@layout/list_add_inventory_sub_item" />
+
+                <TextView
+                    android:id="@+id/txt_NoData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/headerView"
+                    android:gravity="center"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="No Data Found!"></TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/addNewItemView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_below="@+id/ll_Item"
+                android:background="@drawable/bg_add_inventory_sub_item"
+                android:weightSum="1">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.8"
+                    android:background="@null"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="start|center"
+                    android:hint="@string/enter_description"
+                    android:inputType="text|textCapWords"
+                    android:maxLines="8"
+                    android:minLines="4"
+                    android:padding="@dimen/_4sdp"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_6sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etCount"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="start|center"
+                    android:layout_weight="0.2"
+                    android:hint="Count"
+                    android:inputType="number"
+                    android:maxLines="8"
+                    android:minLines="4"
+                    android:padding="@dimen/_4sdp"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_6sdp" />
+
+                <ImageView
+                    android:id="@+id/ivSave"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:enabled="false"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:src="@drawable/ic_correct"
+                    android:backgroundTint="@color/navy_blue"
+                    android:background="@drawable/ic_circle_yellow"/>
+
+                <ImageView
+                    android:id="@+id/ivDelete"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_gravity="center|end"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:src="@drawable/ic_v_ic_close_circle_outline"
+                    app:tint="@color/colorAccent" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtErrorMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addNewItemView"
+                android:textColor="@color/red"
+                android:visibility="gone"
+                android:textSize="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                tools:text="No Data Found!"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtErrorMessage"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddNew"
+                    style="@style/black_btn"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="wrap_content"
+                    android:text="ADD NEW"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:background="@drawable/bg_inventory_sub_item"
+                    app:backgroundTint="@color/colorAccent"
+                    app:cornerRadius="@dimen/_8sdp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
